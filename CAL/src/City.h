@@ -9,16 +9,17 @@
 #define SRC_CITY_H_
 
 #include <string>
+#include <vector>
+#include "Travel.h"
 
 class City {
 public:
 	City();
-	virtual ~City();
 
 private:
 	std::string name;
 	double price;
-	
+	//std::vector<Travel> travels;
 
 };
 

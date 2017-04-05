@@ -8,12 +8,14 @@
 #ifndef SRC_TRAVEL_H_
 #define SRC_TRAVEL_H_
 
+#include "City.h"
+
 class Travel {
 private:
-	int distance;
+	//City * dest;
 	double price;
 public:
-	Travel();
+	//Travel(City * dest, double price);
 };
 
 #endif /* SRC_TRAVEL_H_ */
