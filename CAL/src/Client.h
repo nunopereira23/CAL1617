@@ -25,7 +25,7 @@ public:
 	int getId();
 	std::string getName();
 	bool operator== (Client &c);
-	ostream operator<< (ostream &os, Client &c1);
+	ostream &operator<< (ostream &os, Client &c1);
 	//virtual ~Client();
 };
 
