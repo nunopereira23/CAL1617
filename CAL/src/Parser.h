@@ -11,12 +11,14 @@
 #include <string>
 #include <vector>
 #include "City.h"
+#include "Client.h"
 
 class Parser {
 private:
 	static std::vector<std::string> parseLines(std::string file);
 public:
 	static std::vector<City> ParseCities(std::string file);
+	static std::vector<Client *> ParseClients(std::string file);
 
 
 };

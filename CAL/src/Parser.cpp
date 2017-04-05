@@ -11,6 +11,7 @@
 #include <string>
 #include <stdlib.h>
 #include "City.h"
+#include "Client.h"
 
 using namespace std;
 
@@ -46,4 +47,27 @@ vector<City> Parser::ParseCities(string file) {
 	}
 
 	return cities;
+}
+
+vector<Client *> Parser::ParseClients(string file){
+vector<Client *> clientes;
+
+	vector<string> lines = Parser::parseLines(file);
+	for (unsigned int i = 0; i < lines.size(); i++) {
+		string line = lines.at(i);
+		string name, origin, dest, max;
+		vector<City *> places;
+
+		name=line.substr(0,line.find(','));
+		line = line.substr(line.find(',') + 2);
+		origin = line.substr(0, line.find(','));
+		line = line.substr(line.find(',') + 2);
+		dest = line.substr(0, line.find(','));
+		line = line.substr(line.find(',') + 2);
+		max = line.substr(0, line.find(';'));
+		Client* c = new  Client(name, origin, dest, atoi(max.c_str()));
+		clientes.push_back(c);
+		cout << clientes[0];
+	}
+	return clientes;
 }

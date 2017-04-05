@@ -10,11 +10,9 @@
 #include "Agency.h"
 #include "Parser.h"
 
-
 void exercicio1();
 void exercicio2();
 void exercicio3();
-
 
 void exercicio1()
 {
@@ -267,6 +265,8 @@ void createGraph() {
 	City luanda("Luanda",10.0,-8.38333,13.2344439);//19*/
 
 	vector<City> cities = Parser::ParseCities("cities.txt");
+	vector<Client *> clients = Parser::ParseClients("clients.txt");
+
 
 	GraphViewer *gv = new GraphViewer(600, 600, false);
 
@@ -343,13 +343,16 @@ void Agency::addClient(string name, string origin, int max, vector<City *> place
 	this->clients.push_back(c1);
 }
 
+vector <Client *> Agency::getClients(){
+	return this->clients;
+}
+
 
 int main() {
 	//exercicio1();
 	//exercicio2();
 	//exercicio3();
 	//getchar();
-
 	createGraph();
 	getchar();
 	return 0;
