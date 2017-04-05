@@ -23,9 +23,11 @@ public:
 	void setMaxDays(int days);
 	int getMaxDays(void) const;
 	int getId();
+	std::string getOrigin();
+	std::string getDest();
 	std::string getName();
 	bool operator== (Client &c);
-	ostream &operator<< (ostream &os, Client &c1);
+	friend std::ostream &operator<< (std::ostream &os, Client &c1);
 	//virtual ~Client();
 };
 
