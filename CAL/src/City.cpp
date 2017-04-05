@@ -6,3 +6,6 @@
  */
 
 #include "City.h"
+
+City::City(std::string name, double price, double lat, double lon) :
+	name(name), price(price), lat(lat), lon(lon) {}

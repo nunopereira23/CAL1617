@@ -4,6 +4,9 @@
 #include <iostream>
 #include <sstream>
 
+#include "City.h"
+#include "Graph.h"
+
 void exercicio1();
 void exercicio2();
 void exercicio3();
@@ -230,10 +233,18 @@ void exercicio3()
 	gv->rearrange();
 }
 
+void createGraph() {
+	Graph<City> graph;
+}
+
 int main() {
 	//exercicio1();
-	exercicio2();
+	//exercicio2();
 	//exercicio3();
 	//getchar();
+
+	createGraph();
+
+
 	return 0;
 }

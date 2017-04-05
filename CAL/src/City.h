@@ -10,17 +10,22 @@
 
 #include <string>
 #include <vector>
+
 #include "Travel.h"
 
 class City {
-public:
-	City();
-
-private:
+	private:
 	std::string name;
 	double price;
-	//std::vector<Travel> travels;
+	double lat;
+	double lon;
 
+	std::vector<Travel> travels;
+
+public:
+	City(std::string name, double price, double lat, double lon);
+	void addTravel(Travel t);
+	void removeTravelTo(City *c);
 };
 
 #endif /* SRC_CITY_H_ */

@@ -140,12 +140,9 @@ Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w){}
 template <class T>
 class Graph {
 	std::vector<Vertex<T> *> vertexSet;
-	void dfs(Vertex<T> *v, std::vector<T> &res) const;
 
 	//exercicio 5
 	int numCycles;
-	void dfsVisit(Vertex<T> *v);
-	void dfsVisit();
 	void getPathTo(Vertex<T> *origin, std::list<T> &res);
 
 	//exercicio 6

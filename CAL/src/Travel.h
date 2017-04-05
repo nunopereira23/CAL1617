@@ -7,15 +7,17 @@
 
 #ifndef SRC_TRAVEL_H_
 #define SRC_TRAVEL_H_
+#pragma once
 
-#include "City.h"
-
+class City;
 class Travel {
 private:
-	//City * dest;
+	City * dest;
 	double price;
 public:
-	//Travel(City * dest, double price);
+	Travel();
+	Travel(City * dest, double price);
+	friend class City;
 };
 
 #endif /* SRC_TRAVEL_H_ */
