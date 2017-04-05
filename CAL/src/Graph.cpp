@@ -1,9 +1,5 @@
 #include "Graph.h"
 
-void exercicio1();
-void exercicio2();
-void exercicio3();
-
 void exercicio1()
 {
 	GraphViewer *gv = new GraphViewer(600, 600, true);
