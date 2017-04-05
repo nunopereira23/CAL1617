@@ -1,14 +1,10 @@
-#include <cstdio>
-#include "lib/graphviewer.h"
+#include <vector>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 
 #include "City.h"
-#include "Graph.h"
 #include "Client.h"
-#include "Parser.h"
-#include <vector>
 
 
 using namespace std;

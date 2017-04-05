@@ -10,6 +10,9 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
+#include <stdlib.h>
+
 #include "City.h"
 #include "Client.h"
 

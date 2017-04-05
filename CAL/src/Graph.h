@@ -8,6 +8,7 @@
 #include <queue>
 #include <list>
 #include <limits>
+#include <cstdio>
 #include <cmath>
 #include <climits>
 #include "lib/graphviewer.h"
@@ -165,6 +166,7 @@ public:
 	std::vector<T> getPath(const T &origin, const T &dest);
 
 	void dijkstraShortestPath(const T &s);
+	void createGraph();
 };
 
 
