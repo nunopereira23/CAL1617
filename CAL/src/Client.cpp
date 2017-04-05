@@ -27,6 +27,9 @@ string Client::getName(){
 	return this->name;
 }
 
+int Client::getId(){
+	return this->id;
+}
 
 int Client::getMaxDays() const {
 	return this->maxDays;
@@ -41,3 +44,10 @@ bool Client::operator==(Client &c){
 		return true;
 	else return false;
 }
+/*
+ostream & operator<<(ostream &os, Client &c1){
+
+	os << c1.getId() << ", " << c1.getName() << ", " << c1.
+}
+*/
+

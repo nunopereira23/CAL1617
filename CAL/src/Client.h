@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "City.h"
+#include <iostream>
 
 class Client {
 private:
@@ -21,8 +22,10 @@ public:
 	Client(std::string nome, std::string origem, int max, std::vector<City *> places);
 	void setMaxDays(int days);
 	int getMaxDays(void) const;
+	int getId();
 	std::string getName();
 	bool operator== (Client &c);
+	ostream operator<< (ostream &os, Client &c1);
 	//virtual ~Client();
 };
 

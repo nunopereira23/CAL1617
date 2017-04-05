@@ -6,6 +6,8 @@
 
 #include "City.h"
 #include "Graph.h"
+#include "Client.h"
+
 
 void exercicio1();
 void exercicio2();
@@ -156,7 +158,7 @@ void exercicio2()
 		gv->rearrange();
 	}
 }
-
+/*
 void exercicio3()
 {
 	GraphViewer *gv = new GraphViewer(600, 600, false);
@@ -176,7 +178,7 @@ void exercicio3()
 	    exit(1);   // call system to stop
 	}
 
-	std::string   line;
+	std::string line;
 
 	int idNo=0;
 	int X=0;
@@ -232,6 +234,11 @@ void exercicio3()
 
 	gv->rearrange();
 }
+
+*/
+
+
+
 
 void createGraph() {
 	Graph<City> graph;
@@ -330,6 +337,10 @@ void createGraph() {
 	gv->addEdge(25, 11, 10, EdgeType::UNDIRECTED);
 	gv->addEdge(26, 3, 0, EdgeType::UNDIRECTED);
 }
+
+
+
+
 
 int main() {
 	//exercicio1();
