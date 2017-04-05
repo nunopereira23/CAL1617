@@ -236,26 +236,26 @@ void exercicio3()
 void createGraph() {
 	Graph<City> graph;
 	//std::string name, double price, double lat, double lon)
-	City lisbon("Lisbon", 10.0, 38.736946, -9.142685);
-	City madrid("Madrid", 10.0, 40.416775, -3.703790);
-	City paris("Paris", 10.0, 48.858093, 2.294694);
-	City london("London", 10.0, 51.509865, -0.118092);
-	City riodejaneiro("Rio de Janeiro",10.0,-22.970722,-43.182365);
-	City newyork("New York",10.0,40.730610,-73.935242);
-	City shanghai("Shanghai",10.0,31.267401,121.522179);
-	City sydney("Sydney",10.0,-33.865143,151.209900);
-	City johannesburg("Johannesburg",10.0,-26.195246,28.034088);
-	City mexicocity("Mexico City",10.0,19.432608,-99.133209);
-	City moscow("Moscow",10.0,55.751244,37.618423);
-	City tokyo("Tokyo",10.0,35.652832,139.839478);
-	City istanbul("Istanbul",10.0,41.015137,28.979530);
-	City rome("Rome",10.0,41.890251,12.492373);
-	City munich("Munich",10.0,48.137154,11.576124);
-	City buenosaires("Buenos Aires",10.0,-34.603722,-58.381592);
-	City losangeles("Los Angeles",10.0,34.052235,-118.243683);
-	City jerusalem("Jerusalem",10.0,31.771959,35.217018);
-	City bangkok("Bangkok",10.0,13.736717,100.523186);
-	City luanda("Luanda",10.0,-8.38333,13.2344439);
+	City lisbon("Lisbon", 10.0, 38.736946, -9.142685);//0
+	City madrid("Madrid", 10.0, 40.416775, -3.703790);//1
+	City paris("Paris", 10.0, 48.858093, 2.294694);//2
+	City london("London", 10.0, 51.509865, -0.118092);//3
+	City riodejaneiro("Rio de Janeiro",10.0,-22.970722,-43.182365);//4
+	City newyork("New York",10.0,40.730610,-73.935242);//5
+	City shanghai("Shanghai",10.0,31.267401,121.522179);//6
+	City sydney("Sydney",10.0,-33.865143,151.209900);//7
+	City johannesburg("Johannesburg",10.0,-26.195246,28.034088);//8
+	City mexicocity("Mexico City",10.0,19.432608,-99.133209);//9
+	City moscow("Moscow",10.0,55.751244,37.618423);//10
+	City tokyo("Tokyo",10.0,35.652832,139.839478);//11
+	City istanbul("Istanbul",10.0,41.015137,28.979530);//12
+	City rome("Rome",10.0,41.890251,12.492373);//13
+	City munich("Munich",10.0,48.137154,11.576124);//14
+	City buenosaires("Buenos Aires",10.0,-34.603722,-58.381592);//15
+	City losangeles("Los Angeles",10.0,34.052235,-118.243683);//16
+	City jerusalem("Jerusalem",10.0,31.771959,35.217018);//!7
+	City bangkok("Bangkok",10.0,13.736717,100.523186);//18
+	City luanda("Luanda",10.0,-8.38333,13.2344439);//19
 
 
 
@@ -306,7 +306,29 @@ void createGraph() {
 	gv->addEdge(1, 1, 2, EdgeType::UNDIRECTED);
 	gv->addEdge(2, 1, 3, EdgeType::UNDIRECTED);
 	gv->addEdge(3, 2, 3, EdgeType::UNDIRECTED);
-
+	gv->addEdge(4, 6, 11, EdgeType::UNDIRECTED);
+	gv->addEdge(5, 6, 18, EdgeType::UNDIRECTED);
+	gv->addEdge(6, 11, 18, EdgeType::UNDIRECTED);
+	gv->addEdge(7, 6, 7, EdgeType::UNDIRECTED);
+	gv->addEdge(8, 18, 7, EdgeType::UNDIRECTED);
+	gv->addEdge(9, 7, 16, EdgeType::UNDIRECTED);
+	gv->addEdge(10, 16, 5, EdgeType::UNDIRECTED);
+	gv->addEdge(11, 16, 9, EdgeType::UNDIRECTED);
+	gv->addEdge(12, 5, 9, EdgeType::UNDIRECTED);
+	gv->addEdge(13, 9, 4, EdgeType::UNDIRECTED);
+	gv->addEdge(14, 4, 1, EdgeType::UNDIRECTED);
+	gv->addEdge(15, 2, 4, EdgeType::UNDIRECTED);
+	gv->addEdge(16, 2, 13, EdgeType::UNDIRECTED);
+	gv->addEdge(17, 2, 14, EdgeType::UNDIRECTED);
+	gv->addEdge(18, 14, 10, EdgeType::UNDIRECTED);
+	gv->addEdge(19, 13, 19, EdgeType::UNDIRECTED);
+	gv->addEdge(20, 19, 0, EdgeType::UNDIRECTED);
+	gv->addEdge(21, 19, 8, EdgeType::UNDIRECTED);
+	gv->addEdge(22, 8, 1, EdgeType::UNDIRECTED);
+	gv->addEdge(23, 11, 6, EdgeType::UNDIRECTED);
+	gv->addEdge(24, 10, 3, EdgeType::UNDIRECTED);
+	gv->addEdge(25, 11, 10, EdgeType::UNDIRECTED);
+	gv->addEdge(26, 3, 0, EdgeType::UNDIRECTED);
 }
 
 int main() {
