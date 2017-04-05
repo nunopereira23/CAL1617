@@ -36,7 +36,7 @@ public:
 	double getLongitude() const;
 	int getXCoord(int xRes) const;
 	int getYCoord(int yRes) const;
-	bool operator= (const City &c);
+	void operator= (const City &c);
 	bool operator== (const City &c);
 };
 

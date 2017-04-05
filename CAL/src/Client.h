@@ -8,7 +8,9 @@
 
 class Client {
 private:
+	static int cId;
 	std::string name;
+	int id;
 	int maxDays;
 	std::string origin;
 	std::string dest;
@@ -20,6 +22,7 @@ public:
 	void setMaxDays(int days);
 	int getMaxDays(void) const;
 	std::string getName();
+	bool operator== (Client &c);
 	//virtual ~Client();
 };
 

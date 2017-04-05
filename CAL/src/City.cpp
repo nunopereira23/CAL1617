@@ -31,7 +31,7 @@ int City::getId() const {
 	return id;
 }
 
-bool City::operator=(const City &c){
+void City::operator=(const City &c){
 	this->id=c.id;
 	this->name=c.name;
 	this->lat=c.lat;

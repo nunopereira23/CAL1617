@@ -3,15 +3,19 @@
 
 using namespace std;
 
+int Client::cId = 0;
+
 Client::Client(string nome, string origem, string destino, int max){
-this->name=nome;
-this->origin=origem;
-this->dest=destino;
-this->maxDays=max;
+	this->id=Client::cId++;
+	this->name=nome;
+	this->origin=origem;
+	this->dest=destino;
+	this->maxDays=max;
 }
 
 
 Client::Client(string nome, string origem, int max, std::vector<City *> places){
+	this->id=Client::cId++;
 	this->name=nome;
 	this->origin=origem;
 	this->places=places;
@@ -30,4 +34,10 @@ int Client::getMaxDays() const {
 
 void Client::setMaxDays(int x){
 	this->maxDays=x;
+}
+
+bool Client::operator==(Client &c){
+	if(this->id==c.id)
+		return true;
+	else return false;
 }
