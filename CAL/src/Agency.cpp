@@ -7,6 +7,7 @@
 #include "City.h"
 #include "Graph.h"
 #include "Client.h"
+#include "Agency.h"
 
 
 void exercicio1();
@@ -115,14 +116,14 @@ void exercicio2()
 		Sleep(2000);
 		if (first)
 		{
-		  gv->removeNode(12);
-		  gv->removeNode(13);
-		  first=false;
+			gv->removeNode(12);
+			gv->removeNode(13);
+			first=false;
 		}
 		else
 		{
-		  gv->removeNode(20);
-		  gv->removeNode(21);
+			gv->removeNode(20);
+			gv->removeNode(21);
 		}
 		gv->addNode(14,250,550);
 		gv->addNode(15,350,550);
@@ -235,7 +236,7 @@ void exercicio3()
 	gv->rearrange();
 }
 
-*/
+ */
 
 
 
@@ -338,8 +339,19 @@ void createGraph() {
 	gv->addEdge(26, 3, 0, EdgeType::UNDIRECTED);
 }
 
+void Agency::addClient(string name,string origin,string dest,int max){
 
+	Client* c1 = new Client(name, origin, dest, max);
 
+	this->clients.push_back(c1);
+}
+
+void Agency::addClient(string name, string origin, int max, vector<City *> places){
+
+	Client* c1 = new Client(name, origin, max, places);
+
+	this->clients.push_back(c1);
+}
 
 
 int main() {

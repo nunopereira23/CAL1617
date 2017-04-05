@@ -10,4 +10,6 @@ public:
 	Agency(vector<Client *> clientes);
 	void exportClients();
 	void importClients();
+	void addClient(string name, string origin, string dest, int max);
+	void addClient(string name, string origin, int max, vector<City *> places);
 };
