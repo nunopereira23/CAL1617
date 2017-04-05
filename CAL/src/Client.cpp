@@ -3,17 +3,19 @@
 
 using namespace std;
 
-Client::Client(string nome, City origem, City destino){
-	this->name=nome;
-	this->origin=origem;
-	this->dest=destino;
+Client::Client(string nome, string origem, string destino, int max){
+this->name=nome;
+this->origin=origem;
+this->dest=destino;
+this->maxDays=max;
 }
 
 
-Client::Client(string nome, City origem, std::vector<City *> places){
+Client::Client(string nome, string origem, int max, std::vector<City *> places){
 	this->name=nome;
 	this->origin=origem;
 	this->places=places;
+	this->maxDays=max;
 }
 
 

@@ -15,7 +15,7 @@ double City::distance(City &c1, City &c2) {
 }
 
 City::City(std::string name, double price, double lat, double lon) :
-	id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) {
+		id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) {
 
 }
 
@@ -29,4 +29,20 @@ int City::getYCoord(int yRes) const {
 
 int City::getId() const {
 	return id;
+}
+
+bool City::operator=(const City &c){
+	this->id=c.id;
+	this->name=c.name;
+	this->lat=c.lat;
+	this->lon=lon;
+	this->price=c.price;
+}
+
+
+bool City::operator==(const City &c){
+
+	if(this->id == c.id)
+		return true;
+	else return false;
 }
