@@ -235,6 +235,39 @@ void exercicio3()
 
 void createGraph() {
 	Graph<City> graph;
+	//std::string name, double price, double lat, double lon)
+	City lisbon("Lisbon", 10.0, 38.736946, -9.142685);
+	City madrid("Madrid", 10.0, 40.416775, -3.703790);
+	City paris("Paris", 10.0, 48.858093, 2.294694);
+	City london("London", 10.0, 51.509865, -0.118092);
+
+	/*graph.addVertex(lisbon);
+	graph.addVertex(madrid);
+	graph.addVertex(paris);
+	graph.addVertex(london);
+
+	graph.addEdge(lisbon, madrid, City::distance(lisbon, madrid));
+	graph.addEdge(madrid, london, City::distance(madrid, london));
+	graph.addEdge(madrid, paris, City::distance(madrid, paris));
+	graph.addEdge(paris, london, City::distance(paris, london));*/
+
+	GraphViewer *gv = new GraphViewer(600, 600, false);
+
+	gv->createWindow(600, 600);
+
+	gv->defineEdgeDashed(true);
+	gv->defineVertexColor("blue");
+	gv->defineEdgeColor("black");
+
+	gv->addNode(lisbon.getId(), lisbon.getXCoord(600), lisbon.getYCoord(600));
+	gv->addNode(madrid.getId(), madrid.getXCoord(600), madrid.getYCoord(600));
+	gv->addNode(paris.getId(), paris.getXCoord(600), paris.getYCoord(600));
+	gv->addNode(london.getId(), london.getXCoord(600), london.getYCoord(600));
+	gv->addEdge(0, 0, 1, EdgeType::UNDIRECTED);
+	gv->addEdge(1, 1, 2, EdgeType::UNDIRECTED);
+	gv->addEdge(2, 1, 3, EdgeType::UNDIRECTED);
+	gv->addEdge(3, 2, 3, EdgeType::UNDIRECTED);
+
 }
 
 int main() {
@@ -244,7 +277,7 @@ int main() {
 	//getchar();
 
 	createGraph();
-
+	getchar();
 
 	return 0;
 }

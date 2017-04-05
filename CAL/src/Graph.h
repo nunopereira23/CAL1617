@@ -77,7 +77,7 @@ bool Vertex<T>::removeEdgeTo(Vertex<T> *d) {
 //atualizado pelo exerc�cio 5
 template <class T>
 Vertex<T>::Vertex(T in): info(in), visited(false), processing(false), indegree(0), dist(0) {
-	path = nullptr;
+	path = 0;
 }
 
 
@@ -255,7 +255,7 @@ template <class T>
 Vertex<T>* Graph<T>::getVertex(const T &v) const {
 	for(unsigned int i = 0; i < vertexSet.size(); i++)
 		if (vertexSet[i]->info == v) return vertexSet[i];
-	return nullptr;
+	return 0;
 }
 
 template<class T>
@@ -265,11 +265,11 @@ std::vector<T> Graph<T>::getPath(const T &origin, const T &dest){
 	Vertex<T>* v = getVertex(dest);
 
 	buffer.push_front(v->info);
-	while ( v->path != nullptr &&  v->path->info != origin) {
+	while ( v->path != 0 &&  v->path->info != origin) {
 		v = v->path;
 		buffer.push_front(v->info);
 	}
-	if( v->path != nullptr )
+	if( v->path != 0 )
 		buffer.push_front(v->path->info);
 
 
@@ -285,7 +285,7 @@ template<class T>
 void Graph<T>::dijkstraShortestPath(const T &s) {
 
 	for(unsigned int i = 0; i < vertexSet.size(); i++) {
-		vertexSet[i]->path = nullptr;
+		vertexSet[i]->path = 0;
 		vertexSet[i]->dist = INT_MAX;
 		vertexSet[i]->processing = false;
 	}
