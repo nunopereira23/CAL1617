@@ -1,9 +1,3 @@
-/*
- * Client.h
- *
- *  Created on: 05/04/2017
- *      Author: Fr0sk
- */
 
 #ifndef SRC_CLIENT_H_
 #define SRC_CLIENT_H_
@@ -16,12 +10,16 @@ class Client {
 private:
 	std::string name;
 	int maxDays;
+	std::string origin;
+	std::string dest;
+	std::vector<City *> places;
 	void dijkstraShortestPath(const City &c);
 public:
-	Client(City origin, City dest);
-	Client(City origin, std::vector<City *> places);
+	Client(std::string nome, City origem, City dest);
+	Client(std::string nome, City origem, std::vector<City *> places);
 	void setMaxDays(int days);
 	int getMaxDays(void) const;
+	std::string getName();
 	virtual ~Client();
 };
 
