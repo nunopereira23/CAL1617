@@ -1,0 +1,33 @@
+Lisbon,Madrid
+Madrid,Paris
+Madrid,London
+Paris,London
+Shanghai,Tokyo
+Shanghai,Bangkok
+Tokyo,Bangkok
+Shanghai,Sydney
+Bangkok,Sydney
+Sydney,Los Angeles
+Los Angeles,New York
+Los Angeles,Mexico City
+New York,Mexico City
+Mexico City,Rio de Janeiro
+Rio de Janeiro,Lisboa
+Paris,Rio de Janeiro
+Paris,Rome
+Paris,Munich
+Munich,Moscow
+Tokyo,Bangkok
+Bangkok,Lisbon
+Bangkok,Johannesburg
+Johannesburg,Madrid
+Tokyo,Shanghai
+Moscow,London
+Mexico City,Shanghai
+Tokyo,Moscow
+London,Lisbon
+Istanbul,Jerusalem
+Istanbul,Munich
+Buenos Aires,Rio de Janeiro
+Mexico City,Buenos Aires
+Jerusalem,Shanghai
