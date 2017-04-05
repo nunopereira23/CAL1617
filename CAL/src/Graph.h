@@ -142,6 +142,9 @@ Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w){}
  * Class Graph
  * ================================================================================================
  */
+
+void createGraph();
+
 template <class T>
 class Graph {
 	std::vector<Vertex<T> *> vertexSet;
@@ -166,7 +169,6 @@ public:
 	std::vector<T> getPath(const T &origin, const T &dest);
 
 	void dijkstraShortestPath(const T &s);
-	void createGraph();
 };
 
 
