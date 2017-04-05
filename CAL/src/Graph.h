@@ -10,6 +10,10 @@
 #include <limits>
 #include <cmath>
 #include <climits>
+#include "lib/graphviewer.h"
+
+#include "City.h"
+#include "Parser.h"
 
 template <class T> class Edge;
 template <class T> class Graph;
