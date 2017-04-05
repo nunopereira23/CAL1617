@@ -240,6 +240,26 @@ void createGraph() {
 	City madrid("Madrid", 10.0, 40.416775, -3.703790);
 	City paris("Paris", 10.0, 48.858093, 2.294694);
 	City london("London", 10.0, 51.509865, -0.118092);
+	City riodejaneiro("Rio de Janeiro",10.0,-22.970722,-43.182365);
+	City newyork("New York",10.0,40.730610,-73.935242);
+	City shanghai("Shanghai",10.0,31.267401,121.522179);
+	City sydney("Sydney",10.0,-33.865143,151.209900);
+	City johannesburg("Johannesburg",10.0,-26.195246,28.034088);
+	City mexicocity("Mexico City",10.0,19.432608,-99.133209);
+	City moscow("Moscow",10.0,55.751244,37.618423);
+	City tokyo("Tokyo",10.0,35.652832,139.839478);
+	City istanbul("Istanbul",10.0,41.015137,28.979530);
+	City rome("Rome",10.0,41.890251,12.492373);
+	City munich("Munich",10.0,48.137154,11.576124);
+	City buenosaires("Buenos Aires",10.0,-34.603722,-58.381592);
+	City losangeles("Los Angeles",10.0,34.052235,-118.243683);
+	City jerusalem("Jerusalem",10.0,31.771959,35.217018);
+	City bangkok("Bangkok",10.0,13.736717,100.523186);
+	City luanda("Luanda",10.0,-8.38333,13.2344439);
+
+
+
+
 
 	/*graph.addVertex(lisbon);
 	graph.addVertex(madrid);
@@ -263,6 +283,25 @@ void createGraph() {
 	gv->addNode(madrid.getId(), madrid.getXCoord(600), madrid.getYCoord(600));
 	gv->addNode(paris.getId(), paris.getXCoord(600), paris.getYCoord(600));
 	gv->addNode(london.getId(), london.getXCoord(600), london.getYCoord(600));
+	gv->addNode(riodejaneiro.getId(), riodejaneiro.getXCoord(600), riodejaneiro.getYCoord(600));
+	gv->addNode(newyork.getId(), newyork.getXCoord(600), newyork.getYCoord(600));
+	gv->addNode(shanghai.getId(), shanghai.getXCoord(600), shanghai.getYCoord(600));
+	gv->addNode(sydney.getId(), sydney.getXCoord(600), sydney.getYCoord(600));
+	gv->addNode(johannesburg.getId(), johannesburg.getXCoord(600), johannesburg.getYCoord(600));
+	gv->addNode(mexicocity.getId(), mexicocity.getXCoord(600), mexicocity.getYCoord(600));
+	gv->addNode(moscow.getId(), moscow.getXCoord(600), moscow.getYCoord(600));
+	gv->addNode(tokyo.getId(), tokyo.getXCoord(600), tokyo.getYCoord(600));
+	gv->addNode(istanbul.getId(), istanbul.getXCoord(600), istanbul.getYCoord(600));
+	gv->addNode(rome.getId(), rome.getXCoord(600), rome.getYCoord(600));
+	gv->addNode(munich.getId(), munich.getXCoord(600), munich.getYCoord(600));
+	gv->addNode(buenosaires.getId(), buenosaires.getXCoord(600), buenosaires.getYCoord(600));
+	gv->addNode(losangeles.getId(), losangeles.getXCoord(600), losangeles.getYCoord(600));
+	gv->addNode(jerusalem.getId(), jerusalem.getXCoord(600), jerusalem.getYCoord(600));
+	gv->addNode(bangkok.getId(), bangkok.getXCoord(600), bangkok.getYCoord(600));
+	gv->addNode(luanda.getId(), luanda.getXCoord(600), luanda.getYCoord(600));
+
+
+
 	gv->addEdge(0, 0, 1, EdgeType::UNDIRECTED);
 	gv->addEdge(1, 1, 2, EdgeType::UNDIRECTED);
 	gv->addEdge(2, 1, 3, EdgeType::UNDIRECTED);
