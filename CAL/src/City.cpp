@@ -19,6 +19,10 @@ City::City(std::string name, double price, double lat, double lon) :
 
 }
 
+std::string City::getName() const {
+	return this->name;
+}
+
 int City::getXCoord(int xRes) const {
 	return lon*xRes/360;
 }

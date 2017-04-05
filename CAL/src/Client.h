@@ -28,7 +28,6 @@ public:
 	std::string getName();
 	bool operator== (Client &c);
 	friend std::ostream &operator<< (std::ostream &os, Client &c1);
-	//virtual ~Client();
 };
 
 #endif /* SRC_CLIENT_H_ */

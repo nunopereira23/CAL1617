@@ -8,6 +8,7 @@
 #include "Graph.h"
 #include "Client.h"
 #include "Agency.h"
+#include "Parser.h"
 
 
 void exercicio1();
@@ -244,7 +245,7 @@ void exercicio3()
 void createGraph() {
 	Graph<City> graph;
 	//std::string name, double price, double lat, double lon)
-	City lisbon("Lisbon", 10.0, 38.736946, -9.142685);//0
+	/*City lisbon("Lisbon", 10.0, 38.736946, -9.142685);//0
 	City madrid("Madrid", 10.0, 40.416775, -3.703790);//1
 	City paris("Paris", 10.0, 48.858093, 2.294694);//2
 	City london("London", 10.0, 51.509865, -0.118092);//3
@@ -263,21 +264,9 @@ void createGraph() {
 	City losangeles("Los Angeles",10.0,34.052235,-118.243683);//16
 	City jerusalem("Jerusalem",10.0,31.771959,35.217018);//!7
 	City bangkok("Bangkok",10.0,13.736717,100.523186);//18
-	City luanda("Luanda",10.0,-8.38333,13.2344439);//19
+	City luanda("Luanda",10.0,-8.38333,13.2344439);//19*/
 
-
-
-
-
-	/*graph.addVertex(lisbon);
-	graph.addVertex(madrid);
-	graph.addVertex(paris);
-	graph.addVertex(london);
-
-	graph.addEdge(lisbon, madrid, City::distance(lisbon, madrid));
-	graph.addEdge(madrid, london, City::distance(madrid, london));
-	graph.addEdge(madrid, paris, City::distance(madrid, paris));
-	graph.addEdge(paris, london, City::distance(paris, london));*/
+	vector<City> cities = Parser::ParseCities("cities.txt");
 
 	GraphViewer *gv = new GraphViewer(600, 600, false);
 
@@ -287,7 +276,10 @@ void createGraph() {
 	gv->defineVertexColor("blue");
 	gv->defineEdgeColor("black");
 
-	gv->addNode(lisbon.getId(), lisbon.getXCoord(600), lisbon.getYCoord(600));
+	for (vector<City>::iterator city = cities.begin(); city != cities.end(); city++)
+		gv->addNode(city->getId(), city->getXCoord(600), city->getYCoord(600));
+
+	/*gv->addNode(lisbon.getId(), lisbon.getXCoord(600), lisbon.getYCoord(600));
 	gv->addNode(madrid.getId(), madrid.getXCoord(600), madrid.getYCoord(600));
 	gv->addNode(paris.getId(), paris.getXCoord(600), paris.getYCoord(600));
 	gv->addNode(london.getId(), london.getXCoord(600), london.getYCoord(600));
@@ -306,9 +298,7 @@ void createGraph() {
 	gv->addNode(losangeles.getId(), losangeles.getXCoord(600), losangeles.getYCoord(600));
 	gv->addNode(jerusalem.getId(), jerusalem.getXCoord(600), jerusalem.getYCoord(600));
 	gv->addNode(bangkok.getId(), bangkok.getXCoord(600), bangkok.getYCoord(600));
-	gv->addNode(luanda.getId(), luanda.getXCoord(600), luanda.getYCoord(600));
-
-
+	gv->addNode(luanda.getId(), luanda.getXCoord(600), luanda.getYCoord(600));*/
 
 	gv->addEdge(0, 0, 1, EdgeType::UNDIRECTED);
 	gv->addEdge(1, 1, 2, EdgeType::UNDIRECTED);
@@ -362,6 +352,5 @@ int main() {
 
 	createGraph();
 	getchar();
-
 	return 0;
 }
