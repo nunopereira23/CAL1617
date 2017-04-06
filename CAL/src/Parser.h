@@ -1,8 +1,6 @@
 /*
  * Parser.h
- *
- *  Created on: 05/04/2017
- *      Author: Fr0sk
+
  */
 
 #ifndef SRC_PARSER_H_

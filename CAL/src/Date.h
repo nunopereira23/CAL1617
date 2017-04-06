@@ -1,8 +1,6 @@
 /*
  * Date.h
- *
- *  Created on: 05/04/2017
- *      Author: Fr0sk
+
  */
 
 #ifndef SRC_DATE_H_
