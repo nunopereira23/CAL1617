@@ -1,10 +1,10 @@
 //#include "Graph.h"
 #include "Agency.h"
-#include "Graph.cpp"
+#include "Graph.h"
 
 int main() {
-	//exercicio1();
-	//exercicio2();
+//	exercicio1();
+//	exercicio2();
 	//exercicio3();
 	//getchar();
 	createGraph();

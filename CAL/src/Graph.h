@@ -25,9 +25,9 @@ const int DONE_VISITED = 2;
 
 
 
-void exercicio1();
-void exercicio2();
-void exercicio3();
+ void exercicio1();
+ void exercicio2();
+ void exercicio3();
 
 
 
@@ -150,6 +150,7 @@ Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w){}
  * Class Graph
  * ================================================================================================
  */
+
 
 void createGraph();
 

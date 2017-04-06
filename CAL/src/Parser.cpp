@@ -15,6 +15,7 @@ vector<string> Parser::parseLines(string file) {
 
 	ifstream inFile(file.c_str());
 
+	inFile.open(file.c_str(),  ios::in);
 	if (inFile.good() && inFile.is_open()) {
 		string line;
 		while (getline(inFile, line)) {

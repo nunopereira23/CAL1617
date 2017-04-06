@@ -11,8 +11,6 @@
 #include <string>
 #include <vector>
 
-#include "Travel.h"
-
 class City {
 	private:
 	static int cid;
@@ -22,12 +20,10 @@ class City {
 	double lat;
 	double lon;
 
-	std::vector<Travel> travels;
 
 public:
 	static double distance(City &c1, City &c2);
 	City(std::string name, double price, double lat, double lon);
-	void addTravel(Travel t);
 	void removeTravelTo(City *c);
 	int getId() const;
 	std::string getName() const;
