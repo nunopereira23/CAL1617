@@ -330,7 +330,7 @@ void Graph<T>::dijkstraShortestPath(const T &s) {
 				w->dist = v->dist + v->adj[i].weight;
 				w->path = v;
 
-				//se j� estiver na lista, apenas a actualiza
+				//se estiver na lista, apenas a actualiza
 				if(!w->processing)
 				{
 					w->processing = true;
