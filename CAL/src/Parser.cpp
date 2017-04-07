@@ -1,19 +1,18 @@
 
 #include "Parser.h"
 
-
 using namespace std;
 
 vector<string> Parser::parseLines(string file) {
 	vector<string> lines;
 
 	ifstream inFile(file.c_str());
-
-	inFile.open(file.c_str(),  ios::in);
-	if (inFile.good() && inFile.is_open()) {
+	if (inFile.is_open()) {
 		string line;
+
 		while (getline(inFile, line)) {
 			lines.push_back(line);
+			cout << "LINE:";
 		}
 		inFile.close();
 	}
@@ -24,6 +23,7 @@ vector<City> Parser::ParseCities(string file) {
 	vector<City> cities;
 
 	vector<string> lines = Parser::parseLines(file);
+
 	for (unsigned int i = 0; i < lines.size(); i++) {
 		string line = lines.at(i);
 		string name, lat, lon;

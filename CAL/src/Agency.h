@@ -6,18 +6,14 @@
 #include "City.h"
 #include "Client.h"
 
-
-using namespace std;
-
-
 class Agency{
 private:
-	vector<Client *> clients;
+	std::vector<Client *> clients;
 public:
-	Agency(vector<Client *> clientes);
+	Agency(std::vector<Client *> clientes);
 	void exportClients();
 	void importClients();
-	vector<Client *> getClients();
-	void addClient(string name, string origin, string dest, int max);
-	void addClient(string name, string origin, int max, vector<City *> places);
+	std::vector<Client *> getClients();
+	void addClient(std::string name, std::string origin, std::string dest, int max);
+	void addClient(std::string name, std::string origin, int max, std::vector<City *> places);
 };
