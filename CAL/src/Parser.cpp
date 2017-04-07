@@ -41,6 +41,10 @@ vector<City> Parser::ParseCities(string file) {
 
 vector<Link> Parser::ParseConnections(string file, vector<City> cities) {
 	vector<Link> links;
+	vector<string> lines = Parser::parseLines(file);
+
+	for (unsigned int i = 0; i < lines.size(); i++) {
+		string line = lines.at(i);
 		string city1 = line.substr(0, line.find(','));
 		line = line.substr(line.find(',') + 1);
 		Link link(city1, line, cities);
