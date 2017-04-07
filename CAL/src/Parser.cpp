@@ -10,10 +10,8 @@ vector<string> Parser::parseLines(string file) {
 	if (inFile.is_open()) {
 		string line;
 
-		while (getline(inFile, line)) {
+		while (getline(inFile, line))
 			lines.push_back(line);
-			cout << "LINE:";
-		}
 		inFile.close();
 	}
 	return lines;
