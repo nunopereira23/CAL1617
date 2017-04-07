@@ -14,15 +14,15 @@
 
 #include "City.h"
 #include "Client.h"
+#include "Link.h"
 
 class Parser {
 private:
 	static std::vector<std::string> parseLines(std::string file);
 public:
 	static std::vector<City> ParseCities(std::string file);
+	static std::vector<Link> ParseConnections(std::string file, std::vector<City> cities);
 	static std::vector<Client *> ParseClients(std::string file);
-
-
 };
 
 #endif /* SRC_PARSER_H_ */

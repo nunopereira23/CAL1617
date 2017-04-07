@@ -12,7 +12,7 @@ Los Angeles,New York
 Los Angeles,Mexico City
 New York,Mexico City
 Mexico City,Rio de Janeiro
-Rio de Janeiro,Lisboa
+Rio de Janeiro,Lisbon
 Paris,Rio de Janeiro
 Paris,Rome
 Paris,Munich
