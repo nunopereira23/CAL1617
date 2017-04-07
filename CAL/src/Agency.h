@@ -5,12 +5,14 @@
 
 #include "City.h"
 #include "Client.h"
+#include "Parser.h"
+#include "Link.h"
 
 class Agency{
 private:
 	std::vector<Client *> clients;
 public:
-	Agency(std::vector<Client *> clientes);
+	Agency();
 	void exportClients();
 	void importClients();
 	std::vector<Client *> getClients();

@@ -1,3 +1,4 @@
+
 #pragma once
 #include <sstream>
 #include <vector>
@@ -8,10 +9,13 @@
 #include "Client.h"
 #include "Agency.h"
 
-void menuAgencia();
+void agencyMenu();
 
-void menuClientes();
+void clientsMenu();
 
-void menuCidades();
+void citiesMenu();
 
-void menuViagens();
+void travelsMenu();
+
+
+

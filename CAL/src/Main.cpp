@@ -1,8 +1,8 @@
 //#include "Graph.h"
 #include <iostream>
-#include "Agency.h"
 #include "Graph.h"
 #include "Parser.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -10,6 +10,7 @@ void createGraph() {
 	//Graph<City> graph;
 	vector<City> cities = Parser::ParseCities("cities.txt");
 	vector<Link> links;
+	vector<Client *> clients = Parser::ParseClients("clientes.txt");
 	try {
 		links = Parser::ParseConnections("connections.txt", cities);
 	} catch (ExceptionInvalidCityName& e) {
@@ -34,8 +35,11 @@ void createGraph() {
 		gv->addEdge(link->getId(), link->getOriginId(), link->getDestinationId(), EdgeType::UNDIRECTED);
 }
 
+
 int main() {
 	createGraph();
-	getchar();
+	agencyMenu();
+	//getchar();
 	return 0;
 }
+

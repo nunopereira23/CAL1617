@@ -7,6 +7,7 @@
 #include "City.h"
 #include <iostream>
 
+
 class Client {
 private:
 	static int cId;
@@ -31,3 +32,5 @@ public:
 };
 
 #endif /* SRC_CLIENT_H_ */
+
+

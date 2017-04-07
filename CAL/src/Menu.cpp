@@ -2,9 +2,11 @@
 
 using namespace std;
 
-//Nao esquecer criar uma agencia sempre
 
-void menuAgencia() {
+void agencyMenu() {
+
+	Agency a();
+
 	cout << "/***********************/" << endl;
 	cout << "1- Clientes" << endl;
 	cout << "2- Cidades" << endl;
@@ -15,19 +17,19 @@ void menuAgencia() {
 	switch (escolha) {
 	case 1:
 	{
-		menuClientes(); //Passado sempre como apontador para evitar a duplicacao desnecessaria de objetos
+		clientsMenu(); //Passado sempre como apontador para evitar a duplicacao desnecessaria de objetos
 		break;
 	}
 
 	case 2:
 	{
-//		menuCidades();
+//		citiesMenu();
 		break;
 	}
 
 	case 3:
 	{
-//		menuViagens();
+//		travelsMenu();
 		break;
 	}
 
@@ -35,31 +37,44 @@ void menuAgencia() {
 		break;
 	default:
 		cout << "Escolha invalida" << endl;
-		menuAgencia();
+		agencyMenu();
 	}
 }
 
 
-void menuClientes(){
+void clientsMenu(){
 
 	cout << "/***********************/" << endl;
 	cout << "1- Novo cliente" << endl;
 	cout << "2- Apagar cliente" << endl;
-	cout << "3- Consultar cliente" << endl;
-	cout << "4- Consultar todos os clientes" << endl;
-	cout << "5- Menu Anterior" << endl;
+	cout << "3- Consultar todos os clientes" << endl;
+	cout << "4- Menu Anterior" << endl;
 	cout << "/***********************/" << endl;
 	int escolha; cin >> escolha;
 	switch (escolha) {
 	case 1:
 	{
-		string nome;
+		string name, origin, dest;
+		int max;
 		cout << "Indique o nome do cliente" << endl;
 		cin.ignore();
-		getline(cin, nome);
-		//Cliente c(nome);
-		//(*p).addCliente(c);
-		menuClientes(); //Importante incluir
+		getline(cin, name);
+
+		cout << "Indique a origem da viagem" << endl;
+		cin.ignore();
+		getline(cin, origin);
+
+		cout << "Indique o destino da viagem" << endl;
+		cin.ignore();
+		getline(cin, dest);
+
+		cout << "Introduza o nr maximo de dias ate fazer a viagem" << endl;
+		cin.ignore();
+		cin >> max;
+
+
+		//(*a).addClient(name, origin, dest, max);        Need help here please
+		clientsMenu(); //Importante incluir
 		break;
 	}
 	}
