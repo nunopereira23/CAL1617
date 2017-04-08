@@ -5,8 +5,6 @@ using namespace std;
 
 void agencyMenu() {
 
-	Agency a();
-
 	cout << "/***********************/" << endl;
 	cout << "1- Clientes" << endl;
 	cout << "2- Cidades" << endl;
@@ -23,13 +21,13 @@ void agencyMenu() {
 
 	case 2:
 	{
-//		citiesMenu();
+		//		citiesMenu();
 		break;
 	}
 
 	case 3:
 	{
-//		travelsMenu();
+		//		travelsMenu();
 		break;
 	}
 
@@ -72,8 +70,8 @@ void clientsMenu(){
 		cin.ignore();
 		cin >> max;
 
-
-		//(*a).addClient(name, origin, dest, max);        Need help here please
+		Agency* ag();
+		ag->addClient(name, origin, dest, max);
 		clientsMenu(); //Importante incluir
 		break;
 	}
