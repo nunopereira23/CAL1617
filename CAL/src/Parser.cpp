@@ -71,7 +71,6 @@ vector<Client *> Parser::ParseClients(string file){
 		max = line.substr(0, line.find(';'));
 		Client* c = new  Client(name, origin, dest, atoi(max.c_str()));
 		clientes.push_back(c);
-		cout << clientes[0];
 	}
 	return clientes;
 }

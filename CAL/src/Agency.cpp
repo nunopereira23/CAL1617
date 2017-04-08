@@ -4,6 +4,10 @@
 
 using namespace std;
 
+Agency::Agency(){
+this->clients=Parser::ParseClients("clients.txt");
+}
+
 void Agency::addClient(string name,string origin,string dest,int max){
 
 	Client* c1 = new Client(name, origin, dest, max);

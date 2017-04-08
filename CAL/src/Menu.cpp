@@ -86,3 +86,24 @@ void clientsMenu(){
 		break;
 	}
 }
+
+
+void citiesMenu(){
+
+	cout << "/***********************/" << endl;
+		cout << "1- Adicionar cidade" << endl;
+		cout << "2- Consultar todos as cidades" << endl;
+		cout << "3- Menu Anterior" << endl;
+		cout << "/***********************/" << endl;
+		int escolha; cin >> escolha;
+		switch (escolha) {
+		case 1:
+		{
+			break;
+		}
+		case 2:
+		{
+			break;
+		}
+		}
+}
