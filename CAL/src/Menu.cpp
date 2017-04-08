@@ -5,6 +5,8 @@ using namespace std;
 
 void agencyMenu() {
 
+	Agency ag();
+
 	cout << "/***********************/" << endl;
 	cout << "1- Clientes" << endl;
 	cout << "2- Cidades" << endl;
@@ -44,9 +46,8 @@ void clientsMenu(){
 
 	cout << "/***********************/" << endl;
 	cout << "1- Novo cliente" << endl;
-	cout << "2- Apagar cliente" << endl;
-	cout << "3- Consultar todos os clientes" << endl;
-	cout << "4- Menu Anterior" << endl;
+	cout << "2- Consultar todos os clientes" << endl;
+	cout << "3- Menu Anterior" << endl;
 	cout << "/***********************/" << endl;
 	int escolha; cin >> escolha;
 	switch (escolha) {
@@ -70,10 +71,18 @@ void clientsMenu(){
 		cin.ignore();
 		cin >> max;
 
-		Agency* ag();
 		ag->addClient(name, origin, dest, max);
 		clientsMenu(); //Importante incluir
 		break;
 	}
+
+	case 2:
+		ag.showClients();
+		clientsMenu();
+		break;
+
+	case 3:
+		agencyMenu();
+		break;
 	}
 }
