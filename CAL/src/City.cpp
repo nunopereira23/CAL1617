@@ -54,7 +54,6 @@ void City::operator=(const City &c){
 	this->price=c.price;
 }
 
-
 bool City::operator==(const City &c){
 
 	if(this->id == c.id)
