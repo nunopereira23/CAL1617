@@ -194,7 +194,7 @@ void test1() {
 }
 
 int main() {
-	Agency *ag();
+	Agency ag();
 	test1();
 	createGraph();
 	agencyMenu(ag);

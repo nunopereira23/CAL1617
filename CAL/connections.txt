@@ -1,33 +1,33 @@
-Lisbon,Madrid
-Madrid,Paris
-Madrid,London
-Paris,London
-Shanghai,Tokyo
-Shanghai,Bangkok
-Tokyo,Bangkok
-Shanghai,Sydney
-Bangkok,Sydney
-Sydney,Los Angeles
-Los Angeles,New York
-Los Angeles,Mexico City
-New York,Mexico City
-Mexico City,Rio de Janeiro
-Rio de Janeiro,Lisbon
-Paris,Rio de Janeiro
-Paris,Rome
-Paris,Munich
-Munich,Moscow
-Tokyo,Bangkok
-Bangkok,Lisbon
-Bangkok,Johannesburg
-Johannesburg,Madrid
-Tokyo,Shanghai
-Moscow,London
-Mexico City,Shanghai
-Tokyo,Moscow
-London,Lisbon
-Istanbul,Jerusalem
-Istanbul,Munich
-Buenos Aires,Rio de Janeiro
-Mexico City,Buenos Aires
-Jerusalem,Shanghai
+Lisbon, Madrid, 100;
+Madrid, Paris, 100;
+Madrid, London, 100;
+Paris, London, 100;
+Shanghai, Tokyo, 100;
+Shanghai, Bangkok, 100;
+Tokyo, Bangkok, 100;
+Shanghai, Sydney, 100;
+Bangkok, Sydney, 100;
+Sydney, Los Angeles, 100;
+Los Angeles, New York, 100;
+Los Angeles, Mexico City, 100;
+New York, Mexico City, 100;
+Mexico City, Rio de Janeiro, 100;
+Rio de Janeiro, Lisbon, 100;
+Paris, Rio de Janeiro, 100;
+Paris, Rome, 100;
+Paris, Munich, 100;, 100;
+Munich, Moscow, 100;
+Tokyo, Bangkok, 100;
+Bangkok, Lisbon, 100;
+Bangkok, Johannesburg, 100;
+Johannesburg, Madrid, 100;
+Tokyo, Shanghai, 100;
+Moscow, London, 100;
+Mexico City, Shanghai, 100;
+Tokyo, Moscow, 100;
+London, Lisbon, 100;
+Istanbul, Jerusalem, 100;
+Istanbul, Munich, 100;
+Buenos Aires,Rio de Janeiro, 100;
+Mexico City,Buenos Aires, 100;
+Jerusalem,Shanghai, 100;

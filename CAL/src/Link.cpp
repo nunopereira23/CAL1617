@@ -20,8 +20,9 @@ City* Link::getCityId(string city, vector<City *> cities) const {
 	return 0;
 }
 
-Link::Link(string origin, string destination, vector<City *> cities):
+Link::Link(string origin, string destination, double price, vector<City *> cities):
 		id(Link::lid++) {
+	this->price=price;
 	this->origin = getCityId(origin, cities);
 	if (!this->origin)
 		throw ExceptionInvalidCityName("Wrong origin city name!", origin);
@@ -40,6 +41,10 @@ int Link::getOriginId() const {
 
 int Link::getDestinationId() const {
 	return this->destination->getId();
+}
+
+double Link::getPrice() const{
+	return this->price;
 }
 
 City* Link::getOrigin() const {

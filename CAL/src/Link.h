@@ -23,6 +23,7 @@ class Link {
 private:
 	static int lid;
 	int id;
+	double price;
 	//std::string origin;
 	//std::string destination;
 	//int originId;
@@ -32,10 +33,11 @@ private:
 	City* getCityId(std::string city, std::vector<City *> cities) const;
 
 public:
-	Link(std::string origin, std::string destination, std::vector<City *> cities);
+	Link(std::string origin, std::string destination, double price, std::vector<City *> cities);
 	int getId() const;
 	int getOriginId() const;
 	int getDestinationId() const;
+	double getPrice() const;
 	City* getOrigin() const;
 	City* getDestination() const;
 };
