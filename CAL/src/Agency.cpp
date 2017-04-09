@@ -5,7 +5,8 @@
 using namespace std;
 
 Agency::Agency(){
-this->clients=Parser::ParseClients("clients.txt");
+	this->clients=Parser::ParseClients("clients.txt");
+	this->cities=Parser::ParseCities("cities.txt");
 }
 
 void Agency::addClient(string name,string origin,string dest,int max){
@@ -30,7 +31,15 @@ vector <Client *> Agency::getClients(){
 
 void Agency::showClients(){
 
-	for (int i=0; i< clients.size();i++){
+	for (unsigned int i=0; i< clients.size();i++){
 		cout << clients[i] << endl;
 	}
 }
+
+void Agency::showCities(){
+
+	for(unsigned int i=0; i < cities.size(); i++){
+
+	}
+}
+

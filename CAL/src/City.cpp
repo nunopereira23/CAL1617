@@ -35,7 +35,15 @@ int City::getYCoord(int yRes) const {
 }
 
 int City::getId() const {
-	return id;
+	return this->id;
+}
+
+double City::getLatitude() const{
+	return this->lat;
+}
+
+double City::getLongitude() const{
+	return this->lon;
 }
 
 void City::operator=(const City &c){
@@ -56,4 +64,9 @@ bool City::operator==(const City &c){
 
 bool City::operator!=(const City &c){
 	return this->id != c.getId();
+}
+
+ostream & operator<<(ostream &os, City &c1){
+
+	os << c1.getName() << ", " << c1.getLatitude() << ", " << c1.getLongitude() << ";";
 }

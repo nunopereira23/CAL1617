@@ -71,13 +71,13 @@ void clientsMenu(){
 		cin.ignore();
 		cin >> max;
 
-		ag->addClient(name, origin, dest, max);
+		//ag->addClient(name, origin, dest, max);
 		clientsMenu(); //Importante incluir
 		break;
 	}
 
 	case 2:
-		ag.showClients();
+		//ag.showClients();
 		clientsMenu();
 		break;
 
@@ -105,5 +105,12 @@ void citiesMenu(){
 		{
 			break;
 		}
+		case 3:
+		{
+			agencyMenu();
+			break;
+		}
 		}
 }
+
+

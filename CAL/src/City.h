@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 class City {
 	private:
@@ -31,6 +32,8 @@ public:
 	void operator= (const City &c);
 	bool operator== (const City &c);
 	bool operator!= (const City &c);
+	friend std::ostream &operator<< (std::ostream &os, City &c1);
+
 };
 
 #endif /* SRC_CITY_H_ */

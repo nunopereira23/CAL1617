@@ -11,6 +11,7 @@
 class Agency{
 private:
 	std::vector<Client *> clients;
+	std::vector<City *> cities;
 public:
 	Agency();
 	void exportClients();
@@ -19,4 +20,6 @@ public:
 	void addClient(std::string name, std::string origin, std::string dest, int max);
 	void addClient(std::string name, std::string origin, int max, std::vector<City *> places);
 	void showClients();
+	void showCities();
+
 };
