@@ -71,7 +71,7 @@ void clientsMenu(Agency *ag){
 	case 2:
 		ag->showClients();
 		clientsMenu(ag);
-		break;
+	break;
 
 	case 3:
 		agencyMenu(ag);

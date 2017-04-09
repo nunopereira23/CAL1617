@@ -199,7 +199,7 @@ int main() {
 	Agency ag(clients, cities);
 	test1();
 	createGraph();
-	agencyMenu(ag);
+	agencyMenu(&ag);
 	getchar();
 	return 0;
 }

@@ -9,13 +9,13 @@
 #include "Client.h"
 #include "Agency.h"
 
-void agencyMenu(Agency ag);
+void agencyMenu(Agency *ag);
 
-void clientsMenu(Agency ag);
+void clientsMenu(Agency *ag);
 
-void citiesMenu(Agency ag);
+void citiesMenu(Agency *ag);
 
-void travelsMenu(Agency ag);
+void travelsMenu(Agency *ag);
 
 
 
