@@ -57,7 +57,19 @@ void Agency::exportClients(){
 	out.open("clients.txt");
 
 	for(unsigned int i=0; i<clients.size(); i++){
-		out << clients[i] <<endl;
+		out << *clients[i] <<endl;
+	}
+	out.close();
+}
+
+
+void Agency::exportCities(){
+
+	ofstream out;
+	out.open("cities.txt");
+
+	for(unsigned int i=0; i<cities.size(); i++){
+		out << *cities[i] <<endl;
 	}
 	out.close();
 }

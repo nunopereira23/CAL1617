@@ -201,5 +201,6 @@ int main() {
 	createGraph();
 	agencyMenu(&ag);
 	getchar();
+	ag.exportClients();
 	return 0;
 }

@@ -15,6 +15,7 @@ private:
 public:
 	Agency(std::vector<Client *> clients, std::vector<City *> cities);
 	void exportClients();
+	void exportCities();
 	std::vector<Client *> getClients();
 	void addClient(std::string name, std::string origin, std::string dest, int max);
 	void addClient(std::string name, std::string origin, int max, std::vector<City *> places);
