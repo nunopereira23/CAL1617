@@ -1,4 +1,3 @@
-
 #include "Parser.h"
 
 using namespace std;
@@ -66,12 +65,12 @@ vector<Client *> Parser::ParseClients(string file){
 		vector<City *> places;
 
 		name=line.substr(0,line.find(','));
-		line = line.substr(line.find(',') + 2);
+		line = line.substr(line.find(',') + 1);
+		max = line.substr(0, line.find(','));
+		line = line.substr(line.find(',') + 1);
 		origin = line.substr(0, line.find(','));
-		line = line.substr(line.find(',') + 2);
-		dest = line.substr(0, line.find(','));
-		line = line.substr(line.find(',') + 2);
-		max = line.substr(0, line.find(';'));
+		line = line.substr(line.find(',') + 1);
+		dest = line.substr(0, line.find(';'));
 		Client* c = new  Client(name, origin, dest, atoi(max.c_str()));
 		clientes.push_back(c);
 	}

@@ -1,8 +1,3 @@
-/*
- * Parser.h
-
- */
-
 #ifndef SRC_PARSER_H_
 #define SRC_PARSER_H_
 
@@ -24,5 +19,6 @@ public:
 	static std::vector<Link *> ParseConnections(std::string file, std::vector<City *> cities);
 	static std::vector<Client *> ParseClients(std::string file);
 };
+
 
 #endif /* SRC_PARSER_H_ */

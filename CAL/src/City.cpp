@@ -1,4 +1,3 @@
-
 #include <cmath>
 #include <vector>
 #include "City.h"
@@ -72,4 +71,6 @@ bool City::operator!=(const City &c){
 ostream & operator<<(ostream &os, City &c1){
 
 	os << c1.getName() << ", " << c1.getPrice() << ", " << c1.getLatitude() << ", " << c1.getLongitude() << ";";
+	return os;
 }
+

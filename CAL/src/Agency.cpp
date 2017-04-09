@@ -1,8 +1,8 @@
-
 #include "lib/graphviewer.h"
 #include "Agency.h"
 
 using namespace std;
+
 
 Agency::Agency(std::vector<Client *> clients, std::vector<City *> cities){
 	this->clients=clients;
@@ -39,14 +39,15 @@ vector <Client *> Agency::getClients(){
 void Agency::showClients(){
 
 	for (unsigned int i=0; i< clients.size();i++){
-		cout << clients[i] << endl;
+		cout << *clients[i] << endl;
 	}
 }
 
 void Agency::showCities(){
 
-	for(unsigned int i=0; i < cities.size(); i++){
-		cout << cities[i] << endl;
+	vector<City *>::iterator it = cities.begin();
+	for(it; it!=cities.end();it++){
+		cout << *(*it) << endl;
 	}
 }
 

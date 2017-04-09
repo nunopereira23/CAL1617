@@ -1,10 +1,3 @@
-/*
- * Link.h
- *
- *  Created on: 05/04/2017
- *      Author: Fr0sk
- */
-
 #ifndef SRC_LINK_H_
 #define SRC_LINK_H_
 
@@ -41,5 +34,6 @@ public:
 	City* getOrigin() const;
 	City* getDestination() const;
 };
+
 
 #endif /* SRC_LINK_H_ */

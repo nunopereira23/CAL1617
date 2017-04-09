@@ -118,6 +118,7 @@ void citiesMenu(Agency *ag){
 		case 2:
 		{
 			ag->showCities();
+			citiesMenu(ag);
 			break;
 		}
 

@@ -21,5 +21,5 @@ public:
 	void addCity(std::string name, double price, double lat, double lon);
 	void showClients();
 	void showCities();
-
 };
+
