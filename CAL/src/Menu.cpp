@@ -83,18 +83,45 @@ void clientsMenu(Agency *ag){
 void citiesMenu(Agency *ag){
 
 	cout << "/***********************/" << endl;
-		cout << "1- Consultar todas as cidades" << endl;
-		cout << "2- Menu Anterior" << endl;
+		cout << "1- Adicionar uma cidade"<<endl;
+		cout << "2- Consultar todas as cidades" << endl;
+		cout << "3- Menu Anterior" << endl;
 		cout << "/***********************/" << endl;
 		int escolha; cin >> escolha;
 		switch (escolha) {
 		case 1:
 		{
-			ag->showCities();
+			string name;
+			double price, lat, lon;
+
+					cout << "Indique o nome da cidade" << endl;
+					cin.ignore();
+					getline(cin, name);
+
+					cout << "Indique o preço associado a cidade" << endl;
+					cin.ignore();
+					cin >> price;
+
+					cout << "Indique a latitude da cidade" << endl;
+					cin.ignore();
+					cin >> lat;
+
+					cout << "Introduza a longitude da cidade" << endl;
+					cin.ignore();
+					cin >> lon;
+
+			ag->addCity(name, price, lat, lon);
+			citiesMenu(ag);
 			break;
 		}
 
 		case 2:
+		{
+			ag->showCities();
+			break;
+		}
+
+		case 3:
 		{
 			agencyMenu(ag);
 			break;

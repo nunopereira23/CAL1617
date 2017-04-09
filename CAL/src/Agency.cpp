@@ -23,6 +23,13 @@ void Agency::addClient(string name, string origin, int max, vector<City *> place
 	this->clients.push_back(c1);
 }
 
+void Agency::addCity(string name, double price, double lat, double lon){
+
+	City* ct = new City(name, price, lat, lon);
+
+	this->cities.push_back(ct);
+}
+
 
 vector <Client *> Agency::getClients(){
 	return this->clients;
