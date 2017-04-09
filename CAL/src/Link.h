@@ -23,19 +23,21 @@ class Link {
 private:
 	static int lid;
 	int id;
-	std::string origin;
-	std::string destination;
-	int originId;
-	int destinationId;
-	int getCityId(std::string city, std::vector<City> cities) const;
+	//std::string origin;
+	//std::string destination;
+	//int originId;
+	//int destinationId;
+	City* origin;
+	City* destination;
+	City* getCityId(std::string city, std::vector<City *> cities) const;
 
 public:
-	Link(std::string origin, std::string destination, std::vector<City> cities);
+	Link(std::string origin, std::string destination, std::vector<City *> cities);
 	int getId() const;
 	int getOriginId() const;
 	int getDestinationId() const;
-	std::string getOrigin() const;
-	std::string getDestination() const;
+	City* getOrigin() const;
+	City* getDestination() const;
 };
 
 #endif /* SRC_LINK_H_ */

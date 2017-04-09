@@ -13,21 +13,20 @@ using namespace std;
 
 int Link::lid = 0;
 
-int Link::getCityId(string city, vector<City> cities) const {
-	for (vector<City>::const_iterator it = cities.begin(); it != cities.end(); it++)
-		if (it->getName() == city)
-			return cities.end() - it - 1;
-	return -1;
-
+City* Link::getCityId(string city, vector<City *> cities) const {
+	for (vector<City *>::const_iterator it = cities.begin(); it != cities.end(); it++)
+		if ((*it)->getName() == city)
+			return (*it);
+	return 0;
 }
 
-Link::Link(string origin, string destination, vector<City> cities):
-		id(Link::lid++), origin(origin), destination(destination) {
-	originId = getCityId(origin, cities);
-	if (originId < 0)
+Link::Link(string origin, string destination, vector<City *> cities):
+		id(Link::lid++) {
+	this->origin = getCityId(origin, cities);
+	if (!this->origin)
 		throw ExceptionInvalidCityName("Wrong origin city name!", origin);
-	destinationId = getCityId(destination, cities);
-	if (destinationId < 0)
+	this->destination = getCityId(destination, cities);
+	if (!this->destination)
 		throw ExceptionInvalidCityName("Wrong destination city name!", destination);
 }
 
@@ -36,17 +35,17 @@ int Link::getId() const {
 }
 
 int Link::getOriginId() const {
-	return this->originId;
+	return this->origin->getId();
 }
 
 int Link::getDestinationId() const {
-	return this->destinationId;
+	return this->destination->getId();
 }
 
-std::string Link::getOrigin() const {
+City* Link::getOrigin() const {
 	return this->origin;
 }
 
-std::string Link::getDestination() const {
+City* Link::getDestination() const {
 	return this->destination;
 }

@@ -9,15 +9,16 @@
 class City {
 	private:
 	static int cid;
-	std::string name;
 	int id;
+	std::string name;
 	double price;
 	double lat;
 	double lon;
 
 
 public:
-	static double distance(City &c1, City &c2);
+	static double distance(const City &c1, const City &c2);
+	static double distance(const std::vector<City> &cities);
 	City(std::string name, double price, double lat, double lon);
 	void removeTravelTo(City *c);
 	int getId() const;
@@ -29,6 +30,7 @@ public:
 	int getYCoord(int yRes) const;
 	void operator= (const City &c);
 	bool operator== (const City &c);
+	bool operator!= (const City &c);
 };
 
 #endif /* SRC_CITY_H_ */

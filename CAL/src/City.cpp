@@ -1,19 +1,28 @@
 
 #include <cmath>
-
+#include <vector>
 #include "City.h"
 
+using namespace std;
+
 int City::cid = 0;
-double City::distance(City &c1, City &c2) {
-	return std::sqrt(std::pow(c2.lon-c1.lon, 2)+std::pow(c2.lat-c1.lat, 2));
+
+double City::distance(const City &c1, const City &c2) {
+	return sqrt(pow(c2.lon-c1.lon, 2)+pow(c2.lat-c1.lat, 2));
 }
 
-City::City(std::string name, double price, double lat, double lon) :
-		id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) {
+double City::distance(const vector<City> &cities) {
+	double dist = 0;
 
+	for (vector<City>::const_iterator c = cities.begin() + 1; c != cities.end(); c++)
+		dist += City::distance(*(c-1), *c);
+	return dist;
 }
 
-std::string City::getName() const {
+City::City(string name, double price, double lat, double lon) :
+		id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) { }
+
+string City::getName() const {
 	return this->name;
 }
 
@@ -43,4 +52,8 @@ bool City::operator==(const City &c){
 	if(this->id == c.id)
 		return true;
 	else return false;
+}
+
+bool City::operator!=(const City &c){
+	return this->id != c.getId();
 }
