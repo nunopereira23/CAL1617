@@ -3,9 +3,7 @@
 using namespace std;
 
 
-void agencyMenu() {
-
-	Agency ag();
+void agencyMenu(Agency *ag) {
 
 	cout << "/***********************/" << endl;
 	cout << "1- Clientes" << endl;
@@ -17,7 +15,7 @@ void agencyMenu() {
 	switch (escolha) {
 	case 1:
 	{
-		clientsMenu(); //Passado sempre como apontador para evitar a duplicacao desnecessaria de objetos
+		clientsMenu(ag); //Devia ser passado sempre como apontador para evitar a duplicacao desnecessaria de objetos mas esta a dar erro
 		break;
 	}
 
@@ -37,12 +35,12 @@ void agencyMenu() {
 		break;
 	default:
 		cout << "Escolha invalida" << endl;
-		agencyMenu();
+		agencyMenu(ag);
 	}
 }
 
 
-void clientsMenu(){
+void clientsMenu(Agency *ag){
 
 	cout << "/***********************/" << endl;
 	cout << "1- Novo cliente" << endl;
@@ -72,42 +70,39 @@ void clientsMenu(){
 		cin >> max;
 
 		ag->addClient(name, origin, dest, max);
-		clientsMenu(); //Importante incluir
+		clientsMenu(ag); //Importante incluir
 		break;
 	}
 
 	case 2:
-		ag.showClients();
-		clientsMenu();
+		ag->showClients();
+		clientsMenu(ag);
 		break;
 
 	case 3:
-		agencyMenu();
+		agencyMenu(ag);
 		break;
 	}
 }
 
 
-void citiesMenu(){
+void citiesMenu(Agency *ag){
 
 	cout << "/***********************/" << endl;
-		cout << "1- Adicionar cidade" << endl;
-		cout << "2- Consultar todos as cidades" << endl;
-		cout << "3- Menu Anterior" << endl;
+		cout << "1- Consultar todos as cidades" << endl;
+		cout << "2- Menu Anterior" << endl;
 		cout << "/***********************/" << endl;
 		int escolha; cin >> escolha;
 		switch (escolha) {
 		case 1:
 		{
+			ag->showCities();
 			break;
 		}
+
 		case 2:
 		{
-			break;
-		}
-		case 3:
-		{
-			agencyMenu();
+			agencyMenu(ag);
 			break;
 		}
 		}

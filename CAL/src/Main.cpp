@@ -194,6 +194,7 @@ void test1() {
 }
 
 int main() {
+	Agency ag();
 	test1();
 
 	//createGraph();

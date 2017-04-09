@@ -39,7 +39,7 @@ void Agency::showClients(){
 void Agency::showCities(){
 
 	for(unsigned int i=0; i < cities.size(); i++){
-
+		cout << cities[i] << endl;
 	}
 }
 
