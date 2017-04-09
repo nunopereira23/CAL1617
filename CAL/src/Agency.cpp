@@ -43,3 +43,13 @@ void Agency::showCities(){
 	}
 }
 
+void Agency::exportClients(){
+
+	ofstream out;
+	out.open("clients.txt");
+
+	for(unsigned int i=0; i<clients.size(); i++){
+		out << clients[i] <<endl;
+	}
+	out.close();
+}

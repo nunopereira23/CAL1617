@@ -83,7 +83,7 @@ void clientsMenu(Agency *ag){
 void citiesMenu(Agency *ag){
 
 	cout << "/***********************/" << endl;
-		cout << "1- Consultar todos as cidades" << endl;
+		cout << "1- Consultar todas as cidades" << endl;
 		cout << "2- Menu Anterior" << endl;
 		cout << "/***********************/" << endl;
 		int escolha; cin >> escolha;
