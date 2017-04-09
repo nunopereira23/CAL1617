@@ -13,7 +13,7 @@ private:
 	std::vector<Client *> clients;
 	std::vector<City *> cities;
 public:
-	Agency();
+	Agency(std::vector<Client *> clients, std::vector<City *> cities);
 	void exportClients();
 	std::vector<Client *> getClients();
 	void addClient(std::string name, std::string origin, std::string dest, int max);

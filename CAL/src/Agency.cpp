@@ -4,9 +4,9 @@
 
 using namespace std;
 
-Agency::Agency(){
-	this->clients=Parser::ParseClients("clients.txt");
-	this->cities=Parser::ParseCities("cities.txt");
+Agency::Agency(std::vector<Client *> clients, std::vector<City *> cities){
+	this->clients=clients;
+	this->cities=cities;
 }
 
 void Agency::addClient(string name,string origin,string dest,int max){

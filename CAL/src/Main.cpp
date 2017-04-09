@@ -194,7 +194,9 @@ void test1() {
 }
 
 int main() {
-	Agency ag();
+	vector<City *> cities = Parser::ParseCities("cities.txt");
+	vector<Client *> clients = Parser::ParseClients("clientes.txt");
+	Agency ag(clients, cities);
 	test1();
 	createGraph();
 	agencyMenu(ag);

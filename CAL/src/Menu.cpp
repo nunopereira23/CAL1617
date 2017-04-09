@@ -14,7 +14,7 @@ void agencyMenu(Agency *ag) {
 	switch (escolha) {
 	case 1:
 	{
-		clientsMenu(ag); //Devia ser passado sempre como apontador para evitar a duplicacao desnecessaria de objetos mas esta a dar erro
+		clientsMenu(ag);
 		break;
 	}
 
