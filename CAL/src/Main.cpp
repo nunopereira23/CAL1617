@@ -159,14 +159,18 @@ void test1() {
 
 	// Cities to visit
 	vector<City*> ctv;
+	ctv.push_back(cities.at(3));
 	ctv.push_back(cities.at(1));
 	ctv.push_back(cities.at(2));
+	ctv.push_back(cities.at(4));
 
 	// Get shortest path to every city
 	vector<City> shortestPath;
-	shortestPath.push_back(*org);
+	City pathOrigin = *org;
+	shortestPath.push_back(pathOrigin);
+
 	while (ctv.size() > 0) {
-		vector<City> curShortestPath = getShortestPath(graph, *org, ctv);
+		vector<City> curShortestPath = getShortestPath(graph, pathOrigin, ctv);
 		// Removes city from ctv vector
 		for (vector<City*>::iterator it = ctv.begin(); it != ctv.end(); it++) {
 			if ((**it).getId() == curShortestPath.at(curShortestPath.size() - 1).getId()){
@@ -179,6 +183,9 @@ void test1() {
 		for (vector<City>::iterator it = curShortestPath.begin() + 1; it != curShortestPath.end(); it++) {
 			shortestPath.push_back(*it);
 		}
+
+		// Makes the next origin the current city
+		pathOrigin = shortestPath.at(shortestPath.size() - 1);
 	}
 
 	for (vector<City>::iterator it = shortestPath.begin(); it != shortestPath.end(); it++) {
