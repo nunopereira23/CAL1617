@@ -46,6 +46,10 @@ double City::getLongitude() const{
 	return this->lon;
 }
 
+double City::getPrice() const{
+	return this->price;
+}
+
 void City::operator=(const City &c){
 	this->id=c.id;
 	this->name=c.name;

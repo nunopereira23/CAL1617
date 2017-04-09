@@ -8,8 +8,7 @@ void agencyMenu(Agency *ag) {
 	cout << "/***********************/" << endl;
 	cout << "1- Clientes" << endl;
 	cout << "2- Cidades" << endl;
-	cout << "3- Viagens" << endl;
-	cout << "4- Sair" << endl;
+	cout << "3- Sair" << endl;
 	cout << "/***********************/" << endl;
 	int escolha; cin >> escolha;
 	switch (escolha) {
@@ -21,17 +20,12 @@ void agencyMenu(Agency *ag) {
 
 	case 2:
 	{
-		//		citiesMenu();
+		citiesMenu(ag);
 		break;
 	}
+
 
 	case 3:
-	{
-		//		travelsMenu();
-		break;
-	}
-
-	case 4:
 		break;
 	default:
 		cout << "Escolha invalida" << endl;
