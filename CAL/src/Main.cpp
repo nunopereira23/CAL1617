@@ -121,6 +121,23 @@ Graph<City> createCityGraph(vector<City *> cities, vector<Link *> links) {
 	return graph;
 }
 
+vector<City> getShortestPath(Graph<City> graph, City& origin, vector<City*> possibleDestinations) {
+	vector<City> shortestPath;
+	double weight = numeric_limits<double>::max();
+
+	graph.dijkstraShortestPath(origin);
+	for (unsigned int i = 0; i < possibleDestinations.size(); i++) {
+		vector<City> path = graph.getPath(origin, *possibleDestinations.at(i));
+		double curWeight = City::distance(path);
+		if (weight > curWeight) {
+			shortestPath = path;
+			weight = curWeight;
+		}
+	}
+
+	return shortestPath;
+}
+
 void test1() {
 	// Parse files
 	vector<City *> cities = Parser::ParseCities("cities.txt");
@@ -144,10 +161,33 @@ void test1() {
 	vector<City*> ctv;
 	ctv.push_back(cities.at(1));
 	ctv.push_back(cities.at(2));
+
+	// Get shortest path to every city
+	vector<City> shortestPath;
+	shortestPath.push_back(*org);
+	while (ctv.size() > 0) {
+		vector<City> curShortestPath = getShortestPath(graph, *org, ctv);
+		// Removes city from ctv vector
+		for (vector<City*>::iterator it = ctv.begin(); it != ctv.end(); it++) {
+			if ((**it).getId() == curShortestPath.at(curShortestPath.size() - 1).getId()){
+				ctv.erase(it);
+				break;
+			}
+		}
+
+		// Adds the calculated path to the path vector
+		for (vector<City>::iterator it = curShortestPath.begin() + 1; it != curShortestPath.end(); it++) {
+			shortestPath.push_back(*it);
+		}
+	}
+
+	for (vector<City>::iterator it = shortestPath.begin(); it != shortestPath.end(); it++) {
+		cout << it->getName() << endl;
+	}
 }
 
 int main() {
-	//test();
+	test1();
 
 	//createGraph();
 	//agencyMenu();
