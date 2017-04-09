@@ -62,7 +62,6 @@ void Agency::exportClients(){
 	out.close();
 }
 
-
 void Agency::exportCities(){
 
 	ofstream out;

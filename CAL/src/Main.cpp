@@ -202,5 +202,6 @@ int main() {
 	agencyMenu(&ag);
 	getchar();
 	ag.exportClients();
+	ag.exportCities();
 	return 0;
 }
