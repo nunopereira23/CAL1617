@@ -12,7 +12,6 @@ Agency::Agency(std::vector<Client *> clients, std::vector<City *> cities){
 void Agency::addClient(string name,string origin,string dest,int max){
 
 	Client* c1 = new Client(name, origin, dest, max);
-
 	this->clients.push_back(c1);
 }
 
@@ -61,7 +60,7 @@ void Agency::exportClients(){
 	out.open("clients.txt");
 
 	for(unsigned int i=0; i<clients.size(); i++){
-		out << *clients[i] <<endl;
+		out << *clients.at(i) << endl;
 	}
 	out.close();
 }
