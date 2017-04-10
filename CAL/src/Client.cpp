@@ -39,6 +39,10 @@ string Client::getDest(){
 	return this->dest;
 }
 
+vector<string> Client::getPlaces(){
+	return this->places;
+}
+
 int Client::getMaxDays() const {
 	return this->maxDays;
 }
@@ -60,3 +64,17 @@ ostream & operator<<(ostream &os, Client &c1){
 	return os;
 }
 
+
+/*
+ostream & operator<<(ostream &os, Client &c1){
+
+	os << c1.getId() << ", " << c1.getName() << ", " << c1.getMaxDays() << ", " << c1.getOrigin() << ", ";
+
+for(unsigned int i=0; i < c1.getPlaces().size()-1; i++){
+	os << c1.getPlaces().at(i) << ", ";
+}
+	os << c1.getPlaces()[c1.getPlaces().size()-1] << ";";
+	return os;
+}
+
+*/

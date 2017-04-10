@@ -26,6 +26,7 @@ public:
 	int getId();
 	std::string getOrigin();
 	std::string getDest();
+	std::vector<std::string> getPlaces();
 	std::string getName();
 	bool operator== (Client &c);
 	friend std::ostream &operator<< (std::ostream &os, Client &c1);
