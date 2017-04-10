@@ -123,6 +123,13 @@ public:
 		convertToDate(numberOfDays);
 	}
 
+	bool isInvalid() {
+		if (day == 99 || month == 99 || year == 9999) {
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * Creates new date with current day, month and year
 	 * @brief class Date constructor with no arguments.
@@ -143,7 +150,7 @@ public:
 	 * @param date		date to be sent
 	 */
 	friend std::ostream& operator<< (std::ostream& out, const Date &date) {
-		out << date.day << "/" << date.month << "/" << date.year;
+		out << date.day << "-" << date.month << "-" << date.year;
 		return out;
 	}
 

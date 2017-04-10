@@ -7,18 +7,21 @@
 #include "Client.h"
 #include "Parser.h"
 #include "Link.h"
+#include "Date.h"
 
 class Agency{
 private:
 	std::vector<Client *> clients;
 	std::vector<City *> cities;
+	std::vector<Link *> links;
 public:
-	Agency(std::vector<Client *> clients, std::vector<City *> cities);
+	Agency(std::vector<Client *> clients, std::vector<City *> cities, std::vector<Link *> links);
 	void exportClients();
 	void exportCities();
 	std::vector<Client *> getClients();
 	std::vector<City *> getCities();
-	void addClient(std::string name, std::string origin, int max, std::vector<std::string> places);
+	std::vector<Link *> getLinks();
+	void addClient(std::string name, std::string origin, std::vector<std::string> places, Date date);
 	void addCity(std::string name, double price, double lat, double lon);
 	void showClients();
 	void showCities();

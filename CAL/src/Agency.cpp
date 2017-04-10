@@ -4,14 +4,16 @@
 using namespace std;
 
 
-Agency::Agency(std::vector<Client *> clients, std::vector<City *> cities){
+Agency::Agency(vector<Client *> clients, vector<City *> cities, vector<Link *> links){
 	this->clients=clients;
 	this->cities=cities;
+	this->links=links;
 }
 
-void Agency::addClient(string name, string origin, int max, vector<string> places){
+void Agency::addClient(string name, string origin, vector<string> places, Date date){
 
-	Client* c1 = new Client(name, origin, max, places);
+	Client* c1 = new Client(name, origin, places);
+	c1->setDate(date);
 	this->clients.push_back(c1);
 }
 
@@ -31,9 +33,11 @@ vector <City *> Agency::getCities(){
 	return this->cities;
 }
 
+vector <Link *> Agency::getLinks(){
+	return this->links;
+}
+
 void Agency::showClients(){
-
-
 	for(vector<Client *>::iterator it = clients.begin(); it!=clients.end();it++){
 		cout << *(*it) << endl;
 	}

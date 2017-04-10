@@ -38,7 +38,7 @@ void createGraph() {
 		gv->addEdge((*link)->getId(), (*link)->getOriginId(), (*link)->getDestinationId(), EdgeType::UNDIRECTED);
 }
 
-Graph<City> createCityGraph(vector<City *> cities, vector<Link *> links) {
+Graph<City> CreateCityGraph(vector<City *> cities, vector<Link *> links) {
 	Graph<City> graph;
 	for (vector<City *>::iterator city = cities.begin(); city != cities.end(); city++) {
 		graph.addVertex(**city);
@@ -53,7 +53,7 @@ Graph<City> createCityGraph(vector<City *> cities, vector<Link *> links) {
 	return graph;
 }
 
-Graph<City> createCityGraph(vector<City *> cities, vector<Link *> links, Date date) {
+Graph<City> CreateCityGraph(vector<City *> cities, vector<Link *> links, Date date) {
 	Graph<City> graph;
 	for (vector<City *>::iterator city = cities.begin(); city != cities.end(); city++) {
 		graph.addVertex(**city);
@@ -85,35 +85,12 @@ vector<City> getShortestPath(Graph<City> graph, City& origin, vector<City*> poss
 	return shortestPath;
 }
 
-void test1() {
-	// Parse files
-	vector<City *> cities = Parser::ParseCities("cities.txt");
-	vector<Link *> links;
-	try {
-		links = Parser::ParseConnections("connections.txt", cities);
-	} catch (ExceptionInvalidCityName& e) {
-
-		cerr << "EInvalidCityName: " << e.info << " - " << e.cityName << endl;
-		return;
-	}
-
-	// Create graph
-	Graph<City> graph = createCityGraph(cities, links);
-
-	// Origin city
-	City* org = cities.at(0);
-	graph.dijkstraShortestPath(*org);
-
-	// Cities to visit
-	vector<City*> ctv;
-	ctv.push_back(cities.at(3));
-	ctv.push_back(cities.at(1));
-	ctv.push_back(cities.at(2));
-	ctv.push_back(cities.at(4));
+vector<City> CalculatePath(City* origin, vector<City*> ctv, Graph<City> graph) {
+	graph.dijkstraShortestPath(*origin);
 
 	// Get shortest path to every city
 	vector<City> shortestPath;
-	City pathOrigin = *org;
+	City pathOrigin = *origin;
 	shortestPath.push_back(pathOrigin);
 
 	while (ctv.size() > 0) {
@@ -135,19 +112,16 @@ void test1() {
 		pathOrigin = shortestPath.at(shortestPath.size() - 1);
 	}
 
-	for (vector<City>::iterator it = shortestPath.begin(); it != shortestPath.end(); it++) {
-		cout << it->getName() << endl;
-	}
+	return shortestPath;
 }
 
 int main() {
 	vector<City *> cities = Parser::ParseCities("cities.txt");
 	vector<Client *> clients = Parser::ParseClients("clients.txt");
-	Agency ag(clients, cities);
-	test1();
-	createGraph();
+	vector<Link *> links= Parser::ParseConnections("connections.txt", cities);
+
+	Agency ag(clients, cities, links);
 	agencyMenu(&ag);
-	getchar();
 	ag.exportClients();
 	ag.exportCities();
 	return 0;

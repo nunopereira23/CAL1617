@@ -87,23 +87,26 @@ vector<Client *> Parser::ParseClients(string file){
 	for (unsigned int i = 0; i < lines.size(); i++) {
 		string line = lines.at(i);
 
-		string name, origin, max;
+		string name, origin, date;
 		vector<City *> places;
-		line = line.substr(line.find(',') + 1);
+		line = line.substr(line.find(',') + 2);
 		name = line.substr(0,line.find(','));
-		line = line.substr(line.find(',') + 1);
-		max = line.substr(0, line.find(','));
-		line = line.substr(line.find(',') + 1);
+		line = line.substr(line.find(',') + 2);
+		date = line.substr(0, line.find(','));
+		line = line.substr(line.find(',') + 2);
 		origin = line.substr(0, line.find(','));
-		line = line.substr(line.find(',') + 1);
+		line = line.substr(line.find(',') + 2);
 		vector<string> destinations;
 		while (line.find(',') != string::npos) {
 			destinations.push_back(line.substr(0,line.find(',')));
-			line = line.substr(line.find(',') + 1);
+			line = line.substr(line.find(',') + 2);
 		}
 		destinations.push_back(line.substr(0, line.find(';')));
-		Client* c = new  Client(name, origin, atoi(max.c_str()), destinations);
+		Date d(date);
+		Client* c = new  Client(name, origin, destinations);
+		c->setDate(d);
 		clientes.push_back(c);
+
 	}
 	return clientes;
 }
