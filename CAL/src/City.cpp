@@ -88,7 +88,7 @@ bool City::operator!=(const City &c){
 
 ostream & operator<<(ostream &os, City &c1){
 
-	os << c1.getName() << ", " << c1.getPrice() << ", " << c1.getLatitude() << ", " << c1.getLongitude() << ";";
+	os << c1.getName() << ", " << (c1.getLatitude()-90) << ", " << (c1.getLongitude()-180) << ", " << c1.getPrice() << ";";
 	return os;
 }
 

@@ -22,6 +22,7 @@ private:
 	City* getCityId(std::string city, std::vector<City *> cities) const;
 
 public:
+	static Link* findLink(std::string origin, std::string destination, std::vector<Link *> links);
 	Link(std::string origin, std::string destination, double price, std::vector<City *> cities);
 	int getId() const;
 	int getOriginId() const;

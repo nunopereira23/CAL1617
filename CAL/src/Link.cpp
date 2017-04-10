@@ -5,6 +5,15 @@ using namespace std;
 
 int Link::lid = 0;
 
+Link* Link::findLink(std::string origin, std::string destination, std::vector<Link *> links) {
+	for (unsigned int i = 0; i < links.size(); i++) {
+		Link* link = links.at(i);
+		if (link->getOrigin()->getName() == origin && link->getDestination()->getName() == destination)
+			return link;
+	}
+	return 0;
+}
+
 City* Link::getCityId(string city, vector<City *> cities) const {
 	for (vector<City *>::const_iterator it = cities.begin(); it != cities.end(); it++)
 		if ((*it)->getName() == city)

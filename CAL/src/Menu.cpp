@@ -114,13 +114,20 @@ void clientsMenu(Agency *ag){
 					}
 				}
 			}
-			//cout << "AHAHA" << ag->getLinks().at(0)->getDestination()->getName()<<endl;
+
 			Graph<City> cityGraph;
 			if (client->hasDate())
 				cityGraph = CityGraphHelper::CreateCityGraph(ag->getCities(), ag->getLinks(), client->getDate());
 			else
 				cityGraph = CityGraphHelper::CreateCityGraph(ag->getCities(), ag->getLinks());
 			vector<City> path = CityGraphHelper::CalculatePath(origin, ctv, cityGraph);
+
+			vector<Link *> pathLinks;
+			// Display Graph
+			for (unsigned int i = 1; i < path.size() && path.size() > 1; i++)
+				pathLinks.push_back(Link::findLink(path.at(i-1).getName(), path.at(i).getName(), ag->getLinks()));
+			CityGraphHelper::ShowGraph(path, pathLinks);
+
 			CityGraphHelper::PrintGraph(path);
 			clientsMenu(ag);
 			break;
