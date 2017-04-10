@@ -18,6 +18,13 @@ double City::distance(const vector<City> &cities) {
 	return dist;
 }
 
+bool City::exists(const City &city, const vector<City> &cities) {
+	for (vector<City>::const_iterator it = cities.begin(); it != cities.end(); it++)
+		if (city.getId() == it->getId())
+			return true;
+	return false;
+}
+
 City::City(string name, double price, double lat, double lon) :
 		id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) { }
 

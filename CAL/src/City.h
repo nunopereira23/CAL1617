@@ -20,6 +20,7 @@ class City {
 public:
 	static double distance(const City &c1, const City &c2);
 	static double distance(const std::vector<City> &cities);
+	static bool exists(const City &city, const std::vector<City> &cities);
 	City(std::string name, double price, double lat, double lon);
 	void removeTravelTo(City *c);
 	int getId() const;
