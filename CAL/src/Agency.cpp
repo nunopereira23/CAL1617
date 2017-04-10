@@ -16,7 +16,7 @@ void Agency::addClient(string name,string origin,string dest,int max){
 	this->clients.push_back(c1);
 }
 
-void Agency::addClient(string name, string origin, int max, vector<City *> places){
+void Agency::addClient(string name, string origin, int max, vector<string> places){
 
 	Client* c1 = new Client(name, origin, max, places);
 
