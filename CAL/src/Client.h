@@ -16,11 +16,11 @@ private:
 	int maxDays;
 	std::string origin;
 	std::string dest;
-	std::vector<City *> places;
+	std::vector<std::string> places;
 	void dijkstraShortestPath(const City &c);
 public:
 	Client(std::string nome, std::string origem, std::string dest, int max);
-	Client(std::string nome, std::string origem, int max, std::vector<City *> places);
+	Client(std::string nome, std::string origem, int max, std::vector<std::string> places);
 	void setMaxDays(int days);
 	int getMaxDays(void) const;
 	int getId();
