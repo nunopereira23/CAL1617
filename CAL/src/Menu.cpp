@@ -46,7 +46,7 @@ void clientsMenu(Agency *ag){
 	case 1:
 	{
 		int esc;
-		cout << "Indique quantas cidades destino pretende visitar\n";
+		cout << "Indique 1 para fazer viajem para 1 cidade ou 2 para viajar por várias cidades\n";
 		cin >> esc;
 		switch(esc){
 		case 1:
@@ -77,7 +77,7 @@ void clientsMenu(Agency *ag){
 		{
 			string name, origin, input;
 			int max;
-			vector<City *> destCities;
+			vector<string> destCities;
 			cout << "Indique o nome do cliente" << endl;
 			cin.ignore();
 			getline(cin, name);
@@ -90,17 +90,25 @@ void clientsMenu(Agency *ag){
 			cin.ignore();
 			cin >> max;
 
+			cout << "Introduza o nome de uma das cidades destino (0 para terminar)\n";
+
 			while(input!="0"){
-
-
+				for (unsigned int i=0; i< ag->cities.size();i++){
+					if(ag->cities[i]->getName()==input){
+						destCities.push_back(input);
+					}
+				}
+				cout << "Nao existe nenhuma cidade com o nome que introduziu!\n";
+				input = readline();
 			}
 
-
-
-			clientsMenu(ag); //Importante incluir
-		break;
+			ag->addClient(name, origin, max, destCities);
+			clientsMenu(ag);
+			break;
 		}
 	}
+		default:
+			break;
 	}
 		case 2:
 			ag->showClients();
