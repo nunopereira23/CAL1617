@@ -18,9 +18,9 @@ double City::distance(const vector<City> &cities) {
 	return dist;
 }
 
-bool City::exists(const string &city, const vector<City> &cities) {
-	for (vector<City>::const_iterator it = cities.begin(); it != cities.end(); it++)
-		if (city == it->getName())
+bool City::exists(const string &city, const vector<City *> &cities) {
+	for (vector<City *>::const_iterator it = cities.begin(); it != cities.end(); it++)
+		if (city == (*it)->getName())
 			return true;
 	return false;
 }

@@ -35,6 +35,9 @@ vector <Client *> Agency::getClients(){
 	return this->clients;
 }
 
+vector <City *> Agency::getCities(){
+	return this->cities;
+}
 
 void Agency::showClients(){
 

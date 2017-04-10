@@ -94,7 +94,7 @@ void clientsMenu(Agency *ag){
 			cout << "Introduza o nome de uma das cidades destino (0 para terminar)\n";
 			cin >> input;
 			while(input!="0"){
-				if(City::exists(input, ag->cities))
+				if(City::exists(input, ag->getCities()))
 						destCities.push_back(input);
 					}
 				cout << "Nao existe nenhuma cidade com o nome que introduziu!\n";

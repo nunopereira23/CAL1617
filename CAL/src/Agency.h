@@ -17,6 +17,7 @@ public:
 	void exportClients();
 	void exportCities();
 	std::vector<Client *> getClients();
+	std::vector<City *> getCities();
 	void addClient(std::string name, std::string origin, std::string dest, int max);
 	void addClient(std::string name, std::string origin, int max, std::vector<std::string> places);
 	void addCity(std::string name, double price, double lat, double lon);
