@@ -50,7 +50,7 @@ void Agency::showClients(){
 void Agency::showCities(){
 
 	vector<City *>::iterator it = cities.begin();
-	for(it; it!=cities.end();it++){
+	for(; it!=cities.end();it++){
 		cout << *(*it) << endl;
 	}
 }

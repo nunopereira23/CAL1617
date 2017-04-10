@@ -56,6 +56,17 @@ double City::getPrice() const{
 	return this->price;
 }
 
+double City::getPrice(Date date) const {
+	for (vector<SpecialDate>::const_iterator sd = specialDates.begin(); sd != specialDates.end(); sd++)
+		if (sd->getInitialDate() < date && date < sd->getFinalDate())
+			return this->price * sd->getFactor();
+	return this->price;
+}
+
+void City::addSpecialDate(SpecialDate date) {
+	specialDates.push_back(date);
+}
+
 void City::operator=(const City &c){
 	this->id=c.id;
 	this->name=c.name;

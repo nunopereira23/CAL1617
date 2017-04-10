@@ -14,7 +14,7 @@ Client::Client(string nome, string origem, string destino, int max){
 }
 
 
-Client::Client(string nome, string origem, int max, std::vector<string> places){
+Client::Client(string nome, string origem, int max, vector<string> places){
 	this->id=Client::cId++;
 	this->name=nome;
 	this->origin=origem;

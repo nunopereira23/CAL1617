@@ -38,74 +38,6 @@ void createGraph() {
 		gv->addEdge((*link)->getId(), (*link)->getOriginId(), (*link)->getDestinationId(), EdgeType::UNDIRECTED);
 }
 
-void test() {
-	vector<City *> cities = Parser::ParseCities("cities.txt");
-	vector<Link *> links;
-	vector<Client *> clients = Parser::ParseClients("clients.txt");
-	try {
-		links = Parser::ParseConnections("connections.txt", cities);
-	} catch (ExceptionInvalidCityName& e) {
-
-		cerr << "EInvalidCityName: " << e.info << " - " << e.cityName << endl;
-		return;
-	}
-
-	Graph<City> graph;
-
-	for (vector<City *>::iterator city = cities.begin(); city != cities.end(); city++) {
-		graph.addVertex(**city);
-	}
-
-	for (vector<Link *>::iterator link = links.begin(); link != links.end(); link++) {
-		City* o = (*link)->getOrigin();
-		City* d = (*link)->getDestination();
-		double w = City::distance(*o, *d);
-		graph.addEdge(*o, *d, w);
-	}
-
-	vector<City*> cs;
-	cs.push_back(cities.at(1));
-	cs.push_back(cities.at(2));
-	//cs.push_back(cities.at(6));
-	City* org = cities.at(0);
-	graph.dijkstraShortestPath(*org);
-
-	vector<City> tripPath;
-	tripPath.push_back(*org);
-
-	while(cs.size() > 0) {
-		vector<City> cheapestLink;
-		vector<City*>::iterator cheapestLinkIt;
-		double lowestPrice = numeric_limits<double>::max();
-
-		for (vector<City*>::iterator it = cs.begin(); it != cs.end(); it++) {
-			City origin = *tripPath.end();
-			vector<City> currentPath = graph.getPath(origin, **it);
-			double currentPrice = City::distance(currentPath);
-			if (currentPrice < lowestPrice) {
-				lowestPrice = currentPrice;
-				cheapestLink = currentPath;
-				cheapestLinkIt = it;
-			}
-		}
-
-		for (vector<City>::iterator it = cheapestLink.begin()+1; it != cheapestLink.end(); it++) {
-			tripPath.push_back(*it);
-		}
-		cs.erase(cheapestLinkIt);
-
-	}
-
-	for (unsigned int i = 0; i < tripPath.size(); i++) {
-		cout << tripPath.at(i).getName() << endl;
-	}
-
-	vector<City> path = graph.getPath(*org, *cities.at(2));
-	for (unsigned int i = 0; i < path.size(); i++) {
-		//cout << path.at(i).getName() << endl;
-	}
-}
-
 Graph<City> createCityGraph(vector<City *> cities, vector<Link *> links) {
 	Graph<City> graph;
 	for (vector<City *>::iterator city = cities.begin(); city != cities.end(); city++) {
@@ -115,7 +47,22 @@ Graph<City> createCityGraph(vector<City *> cities, vector<Link *> links) {
 	for (vector<Link *>::iterator link = links.begin(); link != links.end(); link++) {
 		City* o = (*link)->getOrigin();
 		City* d = (*link)->getDestination();
-		double w = City::distance(*o, *d);
+		double w = (*link)->getPrice() + d->getPrice();
+		graph.addEdge(*o, *d, w);
+	}
+	return graph;
+}
+
+Graph<City> createCityGraph(vector<City *> cities, vector<Link *> links, Date date) {
+	Graph<City> graph;
+	for (vector<City *>::iterator city = cities.begin(); city != cities.end(); city++) {
+		graph.addVertex(**city);
+	}
+
+	for (vector<Link *>::iterator link = links.begin(); link != links.end(); link++) {
+		City* o = (*link)->getOrigin();
+		City* d = (*link)->getDestination();
+		double w = (*link)->getPrice() + d->getPrice(date);
 		graph.addEdge(*o, *d, w);
 	}
 	return graph;

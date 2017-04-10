@@ -1,4 +1,6 @@
 #include "Parser.h"
+#include "Date.h"
+#include "SpecialDate.h"
 
 using namespace std;
 
@@ -30,8 +32,32 @@ vector<City *> Parser::ParseCities(string file) {
 		line = line.substr(line.find(',') + 2);
 		lon = line.substr(0, line.find(','));
 		line = line.substr(line.find(',') + 2);
-		pr = line.substr(0, line.find(';'));
+		if (line.find(',') != string::npos) {
+			pr = line.substr(0, line.find(','));
+			line = line.substr(line.find(',') + 2);
+		} else {
+			pr = line.substr(0, line.find(';'));
+		}
 		cities.push_back(new City(name, atoi(pr.c_str()), atof(lat.c_str()), atof(lon.c_str())));
+
+		while(line.find(',') != string::npos) {
+			string sInitialDate = line.substr(0, line.find(','));
+			line = line.substr(line.find(',') + 2);
+			string sFinalDate = line.substr(0, line.find(','));
+			line = line.substr(line.find(',') + 2);
+			string sFactor;
+			if (line.find(',') != string::npos) {
+				sFactor = line.substr(0, line.find(','));
+				line = line.substr(line.find(',') + 2);
+			} else {
+				sFactor = line.substr(0, line.find(';'));
+			}
+			Date initialDate(sInitialDate);
+			Date finalDate(sFinalDate);
+			double factor = atof(sFactor.c_str());
+			SpecialDate date(initialDate, finalDate, factor);
+			cities.at(cities.size() - 1)->addSpecialDate(date);
+		}
 	}
 
 	return cities;
@@ -71,7 +97,7 @@ vector<Client *> Parser::ParseClients(string file){
 		origin = line.substr(0, line.find(','));
 		line = line.substr(line.find(',') + 1);
 		vector<string> destinations;
-		while (line.find(',') != -1) {
+		while (line.find(',') != string::npos) {
 			destinations.push_back(line.substr(0,line.find(',')));
 			line = line.substr(line.find(',') + 1);
 		}

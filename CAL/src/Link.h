@@ -17,10 +17,6 @@ private:
 	static int lid;
 	int id;
 	double price;
-	//std::string origin;
-	//std::string destination;
-	//int originId;
-	//int destinationId;
 	City* origin;
 	City* destination;
 	City* getCityId(std::string city, std::vector<City *> cities) const;

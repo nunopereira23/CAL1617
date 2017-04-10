@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "SpecialDate.h"
 
 class City {
 	private:
@@ -15,6 +16,7 @@ class City {
 	double price;
 	double lat;
 	double lon;
+	std::vector<SpecialDate> specialDates;
 
 
 public:
@@ -26,6 +28,7 @@ public:
 	int getId() const;
 	std::string getName() const;
 	double getPrice() const;
+	double getPrice(Date date) const;
 	double getLatitude() const;
 	double getLongitude() const;
 	int getXCoord(int xRes) const;
@@ -34,6 +37,7 @@ public:
 	bool operator== (const City &c);
 	bool operator!= (const City &c);
 	friend std::ostream &operator<< (std::ostream &os, City &c1);
+	void addSpecialDate(SpecialDate date);
 
 };
 
