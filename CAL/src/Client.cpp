@@ -60,7 +60,11 @@ bool Client::operator==(Client &c){
 
 ostream & operator<<(ostream &os, Client &c1){
 
-	os << c1.getId() << ", " << c1.getName() << ", " << c1.getMaxDays() << ", " << c1.getOrigin() << ", " << c1.getDest() << ";";
+	os << c1.getId() << ", " << c1.getName() << ", " << c1.getMaxDays() << ", " << c1.getOrigin();
+	for (unsigned int i = 0; i < c1.getPlaces().size(); i++) {
+		os << ", " << c1.getPlaces().at(i);
+	}
+	os << ";";
 	return os;
 }
 

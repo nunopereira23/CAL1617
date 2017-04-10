@@ -89,7 +89,7 @@ vector<Client *> Parser::ParseClients(string file){
 
 		string name, origin, max;
 		vector<City *> places;
-
+		line = line.substr(line.find(',') + 1);
 		name = line.substr(0,line.find(','));
 		line = line.substr(line.find(',') + 1);
 		max = line.substr(0, line.find(','));
