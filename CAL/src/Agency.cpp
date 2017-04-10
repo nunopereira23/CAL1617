@@ -9,16 +9,9 @@ Agency::Agency(std::vector<Client *> clients, std::vector<City *> cities){
 	this->cities=cities;
 }
 
-void Agency::addClient(string name,string origin,string dest,int max){
-
-	Client* c1 = new Client(name, origin, dest, max);
-	this->clients.push_back(c1);
-}
-
 void Agency::addClient(string name, string origin, int max, vector<string> places){
 
 	Client* c1 = new Client(name, origin, max, places);
-
 	this->clients.push_back(c1);
 }
 

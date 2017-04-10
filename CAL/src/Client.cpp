@@ -5,15 +5,6 @@ using namespace std;
 
 int Client::cId = 0;
 
-Client::Client(string nome, string origem, string destino, int max){
-	this->id=Client::cId++;
-	this->name=nome;
-	this->origin=origem;
-	this->dest=destino;
-	this->maxDays=max;
-}
-
-
 Client::Client(string nome, string origem, int max, vector<string> places){
 	this->id=Client::cId++;
 	this->name=nome;
@@ -33,10 +24,6 @@ int Client::getId(){
 
 string Client::getOrigin(){
 	return this->origin;
-}
-
-string Client::getDest(){
-	return this->dest;
 }
 
 vector<string> Client::getPlaces(){

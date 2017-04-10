@@ -45,70 +45,38 @@ void clientsMenu(Agency *ag){
 	switch (escolha) {
 	case 1:
 	{
-		int esc;
-		cout << "Indique 1 para fazer viajem para 1 cidade ou 2 para viajar por várias cidades\n";
-		cin >> esc;
-		switch(esc){
-		case 1:
-		{
-			string name, origin, dest;
-			int max;
-			cout << "Indique o nome do cliente" << endl;
-			cin.ignore();
-			cin >> name;
+		string name, origin;
+		int max;
+		vector<string> places;
 
-			cout << "Indique a origem da viagem" << endl;
-			cin.ignore();
-			cin >> origin;
+		cout << "Indique o nome do cliente" << endl;
+		cin.clear();
+		cin.ignore(10000,'\n');
+		getline(cin, name);
 
-			cout << "Indique o destino da viagem" << endl;
-			cin.ignore();
-			cin >> dest;
+		cout << "Introduza o nr maximo de dias ate fazer a viagem" << endl;
+		cin.clear();
+		cin >> max;
 
-			cout << "Introduza o nr maximo de dias ate fazer a viagem" << endl;
-			cin.ignore();
-			cin >> max;
+		cout << "Indique a origem da viagem" << endl;
+		cin.clear();
+		cin.ignore(10000,'\n');
+		getline(cin, origin);
 
-			ag->addClient(name, origin, dest, max);
-			clientsMenu(ag); //Importante incluir
-			break;
-		}
-		case 2:
-		{
-			string name, origin;
-			int max;
-			vector<string> destCities;
-			cout << "Indique o nome do cliente" << endl;
-			cin.ignore();
-			getline(cin, name);
+		string input;
+		do {
+			cout << "Indique os seus destinos (0 para terminar)" << endl;
+			cin.clear();
+			getline(cin, input);
 
-			cout << "Indique a origem da viagem" << endl;
-			cin.ignore();
-			getline(cin, origin);
-
-			cout << "Introduza o nr maximo de dias ate fazer a viagem" << endl;
-			cin.ignore();
-			cin >> max;
-
-			string input;
-			cout << "Introduza o nome de uma das cidades destino (0 para terminar)\n";
-			cin >> input;
-			while(input!="0"){
-				if(City::exists(input, ag->getCities()))
-						destCities.push_back(input);
-					}
-				cout << "Nao existe nenhuma cidade com o nome que introduziu!\n";
-				cin >> input;
-
-
-			ag->addClient(name, origin, max, destCities);
-			clientsMenu(ag);
-			break;
-		}
-
-		default:
-			break;
-		}
+			if(City::exists(input, ag->getCities())) {
+				places.push_back(input);
+			} else if (input != "0"){
+				cout << "Nao existe nenhuma cidade com o nome que introduziu! Por favor tente novamente." << endl;
+			}
+		} while(input != "0");
+		ag->addClient(name, origin, max, places);
+		clientsMenu(ag);
 		break;
 	}
 		case 2:
