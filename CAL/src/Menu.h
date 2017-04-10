@@ -15,7 +15,6 @@ void clientsMenu(Agency *ag);
 
 void citiesMenu(Agency *ag);
 
-void travelsMenu(Agency *ag);
 
 
 

@@ -45,37 +45,71 @@ void clientsMenu(Agency *ag){
 	switch (escolha) {
 	case 1:
 	{
-		string name, origin, dest;
-		int max;
-		cout << "Indique o nome do cliente" << endl;
-		cin.ignore();
-		getline(cin, name);
+		int esc;
+		cout << "Indique quantas cidades destino pretende visitar\n";
+		cin >> esc;
+		switch(esc){
+		case 1:
+		{
+			string name, origin, dest;
+			int max;
+			cout << "Indique o nome do cliente" << endl;
+			cin.ignore();
+			getline(cin, name);
 
-		cout << "Indique a origem da viagem" << endl;
-		cin.ignore();
-		getline(cin, origin);
+			cout << "Indique a origem da viagem" << endl;
+			cin.ignore();
+			getline(cin, origin);
 
-		cout << "Indique o destino da viagem" << endl;
-		cin.ignore();
-		getline(cin, dest);
+			cout << "Indique o destino da viagem" << endl;
+			cin.ignore();
+			getline(cin, dest);
 
-		cout << "Introduza o nr maximo de dias ate fazer a viagem" << endl;
-		cin.ignore();
-		cin >> max;
+			cout << "Introduza o nr maximo de dias ate fazer a viagem" << endl;
+			cin.ignore();
+			cin >> max;
 
-		ag->addClient(name, origin, dest, max);
-		clientsMenu(ag); //Importante incluir
+			ag->addClient(name, origin, dest, max);
+			clientsMenu(ag); //Importante incluir
+			break;
+		}
+		case 2:
+		{
+			string name, origin, input;
+			int max;
+			vector<City *> destCities;
+			cout << "Indique o nome do cliente" << endl;
+			cin.ignore();
+			getline(cin, name);
+
+			cout << "Indique a origem da viagem" << endl;
+			cin.ignore();
+			getline(cin, origin);
+
+			cout << "Introduza o nr maximo de dias ate fazer a viagem" << endl;
+			cin.ignore();
+			cin >> max;
+
+			while(input!="0"){
+
+
+			}
+
+
+
+			clientsMenu(ag); //Importante incluir
 		break;
+		}
 	}
+	}
+		case 2:
+			ag->showClients();
+			clientsMenu(ag);
+			break;
 
-	case 2:
-		ag->showClients();
-		clientsMenu(ag);
-	break;
-
-	case 3:
-		agencyMenu(ag);
-		break;
+		case 3:
+			agencyMenu(ag);
+			break;
 	}
 }
 
@@ -83,51 +117,49 @@ void clientsMenu(Agency *ag){
 void citiesMenu(Agency *ag){
 
 	cout << "/***********************/" << endl;
-		cout << "1- Adicionar uma cidade"<<endl;
-		cout << "2- Consultar todas as cidades" << endl;
-		cout << "3- Menu Anterior" << endl;
-		cout << "/***********************/" << endl;
-		int escolha; cin >> escolha;
-		switch (escolha) {
-		case 1:
-		{
-			string name;
-			double price, lat, lon;
+	cout << "1- Adicionar uma cidade"<<endl;
+	cout << "2- Consultar todas as cidades" << endl;
+	cout << "3- Menu Anterior" << endl;
+	cout << "/***********************/" << endl;
+	int escolha; cin >> escolha;
+	switch (escolha) {
+	case 1:
+	{
+		string name;
+		double price, lat, lon;
 
-					cout << "Indique o nome da cidade" << endl;
-					cin.ignore();
-					getline(cin, name);
+		cout << "Indique o nome da cidade" << endl;
+		cin.ignore();
+		getline(cin, name);
 
-					cout << "Indique o preço associado a cidade" << endl;
-					cin.ignore();
-					cin >> price;
+		cout << "Indique o preço associado a cidade" << endl;
+		cin.ignore();
+		cin >> price;
 
-					cout << "Indique a latitude da cidade" << endl;
-					cin.ignore();
-					cin >> lat;
+		cout << "Indique a latitude da cidade" << endl;
+		cin.ignore();
+		cin >> lat;
 
-					cout << "Introduza a longitude da cidade" << endl;
-					cin.ignore();
-					cin >> lon;
+		cout << "Introduza a longitude da cidade" << endl;
+		cin.ignore();
+		cin >> lon;
 
-			ag->addCity(name, price, lat, lon);
-			citiesMenu(ag);
-			break;
-		}
+		ag->addCity(name, price, lat, lon);
+		citiesMenu(ag);
+		break;
+	}
 
-		case 2:
-		{
-			ag->showCities();
-			citiesMenu(ag);
-			break;
-		}
+	case 2:
+	{
+		ag->showCities();
+		citiesMenu(ag);
+		break;
+	}
 
-		case 3:
-		{
-			agencyMenu(ag);
-			break;
-		}
-		}
+	case 3:
+	{
+		agencyMenu(ag);
+		break;
+	}
+	}
 }
-
-
