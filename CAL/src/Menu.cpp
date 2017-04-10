@@ -55,15 +55,15 @@ void clientsMenu(Agency *ag){
 			int max;
 			cout << "Indique o nome do cliente" << endl;
 			cin.ignore();
-			getline(cin, name);
+			cin >> name;
 
 			cout << "Indique a origem da viagem" << endl;
 			cin.ignore();
-			getline(cin, origin);
+			cin >> origin;
 
 			cout << "Indique o destino da viagem" << endl;
 			cin.ignore();
-			getline(cin, dest);
+			cin >> dest;
 
 			cout << "Introduza o nr maximo de dias ate fazer a viagem" << endl;
 			cin.ignore();
