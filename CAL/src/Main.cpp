@@ -12,7 +12,7 @@ void createGraph() {
 
 	vector<City *> cities = Parser::ParseCities("cities.txt");
 	vector<Link *> links;
-	vector<Client *> clients = Parser::ParseClients("clientes.txt");
+	vector<Client *> clients = Parser::ParseClients("clients.txt");
 
 	try {
 		links = Parser::ParseConnections("connections.txt", cities);
@@ -41,7 +41,7 @@ void createGraph() {
 void test() {
 	vector<City *> cities = Parser::ParseCities("cities.txt");
 	vector<Link *> links;
-	vector<Client *> clients = Parser::ParseClients("clientes.txt");
+	vector<Client *> clients = Parser::ParseClients("clients.txt");
 	try {
 		links = Parser::ParseConnections("connections.txt", cities);
 	} catch (ExceptionInvalidCityName& e) {
