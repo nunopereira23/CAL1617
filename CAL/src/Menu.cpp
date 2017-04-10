@@ -75,7 +75,7 @@ void clientsMenu(Agency *ag){
 		}
 		case 2:
 		{
-			string name, origin, input;
+			string name, origin;
 			int max;
 			vector<string> destCities;
 			cout << "Indique o nome do cliente" << endl;
@@ -90,25 +90,26 @@ void clientsMenu(Agency *ag){
 			cin.ignore();
 			cin >> max;
 
+			string input;
 			cout << "Introduza o nome de uma das cidades destino (0 para terminar)\n";
-
+			cin >> input;
 			while(input!="0"){
-				for (unsigned int i=0; i< ag->cities.size();i++){
-					if(ag->cities[i]->getName()==input){
+				if(City::exists(input, ag->cities))
 						destCities.push_back(input);
 					}
-				}
 				cout << "Nao existe nenhuma cidade com o nome que introduziu!\n";
-				input = readline();
-			}
+				cin >> input;
+
 
 			ag->addClient(name, origin, max, destCities);
 			clientsMenu(ag);
 			break;
 		}
-	}
+
 		default:
 			break;
+		}
+		break;
 	}
 		case 2:
 			ag->showClients();
