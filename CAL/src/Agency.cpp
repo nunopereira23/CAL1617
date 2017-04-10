@@ -38,8 +38,9 @@ vector <Client *> Agency::getClients(){
 
 void Agency::showClients(){
 
-	for (unsigned int i=0; i< clients.size();i++){
-		cout << *clients[i] << endl;
+
+	for(vector<Client *>::iterator it = clients.begin(); it!=clients.end();it++){
+		cout << *(*it) << endl;
 	}
 }
 
@@ -72,3 +73,4 @@ void Agency::exportCities(){
 	}
 	out.close();
 }
+

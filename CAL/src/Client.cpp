@@ -60,4 +60,3 @@ ostream & operator<<(ostream &os, Client &c1){
 	return os;
 }
 
-

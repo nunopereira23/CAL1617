@@ -1,0 +1,3 @@
+Nuno Pereira, 30, Lisbon, Madrid;
+Manuel, 5, London, Lisbon;
+Nelson, 40, Madrid, London;s
