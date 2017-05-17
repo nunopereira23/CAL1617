@@ -18,3 +18,4 @@
 17, Emma, 99-99-9999, Istambul, Moscow;
 18, Caroline, 99-99-9999, Munich, Moscow;
 19, Jasmin, 99-99-9999, Jerusalem, Lisbon, Madrid;
+20, Nuno Miguel, 31-1-2017, Lisbon, Munich, Paris, London;
