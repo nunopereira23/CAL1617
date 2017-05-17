@@ -15,12 +15,12 @@ int main() {
 
 	vector<string> poi = cities.at(0)->getPointsOfInterest();
 	cout << "Lisboa" << endl;
-	for (int i = 0; i < poi.size(); i++)
+	for (unsigned int i = 0; i < poi.size(); i++)
 		cout << poi.at(i) << endl;
 
 	poi = cities.at(1)->getPointsOfInterest();
 	cout << "Madrid" << endl;
-	for (int i = 0; i < poi.size(); i++)
+	for (unsigned int i = 0; i < poi.size(); i++)
 		cout << poi.at(i) << endl;
 
 	Agency ag(clients, cities, links);

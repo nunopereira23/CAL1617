@@ -135,5 +135,6 @@ void Parser::ParsePointsOfInterest(string file, vector<City *> cities) {
 			city->addPointsOfInterest(line.substr(0,line.find(',')));
 			line = line.substr(line.find(',') + 2);
 		}
+		city->addPointsOfInterest(line.substr(0,line.find(';')));
 	}
 }
