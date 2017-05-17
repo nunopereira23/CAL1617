@@ -34,6 +34,16 @@ City* City::getCity(const string name, const vector<City *> &cities) {
 	return NULL;
 }
 
+vector<City*> City::search(string searchString, std::vector<City*> cities, bool exactSearch) {
+	vector<City*> found;
+	if (exactSearch) {
+		// TODO exact search on the cities vector; populate found vector with results
+	} else {
+		// TODO approximate search on the cities vector; populate found vector with results
+	}
+	return found;
+}
+
 City::City(string name, double price, double lat, double lon) :
 		id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) { }
 
