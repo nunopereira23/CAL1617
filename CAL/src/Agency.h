@@ -16,8 +16,9 @@ private:
 	std::vector<Link *> links;
 public:
 	Agency(std::vector<Client *> clients, std::vector<City *> cities, std::vector<Link *> links);
-	void exportClients();
-	void exportCities();
+	void exportClients(std::string file) const;
+	void exportCities(std::string file) const;
+	void exportPointsOfInterest(std::string file) const;
 	std::vector<Client *> getClients();
 	std::vector<City *> getCities();
 	std::vector<Link *> getLinks();

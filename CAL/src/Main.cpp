@@ -4,14 +4,18 @@
 #include "Parser.h"
 #include "Menu.h"
 
+#define CITIES_FILE "cities.txt"
+#define CLIENTS_FILE "clients.txt"
+#define CONNECTIONS_FILE "connections.txt"
+#define POIS_FILE "pointsOfInterest.txt"
 
 using namespace std;
 
 int main() {
-	vector<City *> cities = Parser::ParseCities("cities.txt");
-	vector<Client *> clients = Parser::ParseClients("clients.txt");
-	vector<Link *> links= Parser::ParseConnections("connections.txt", cities);
-	Parser::ParsePointsOfInterest("pointsOfInterest.txt", cities);
+	vector<City *> cities = Parser::ParseCities(CITIES_FILE);
+	vector<Client *> clients = Parser::ParseClients(CLIENTS_FILE);
+	vector<Link *> links= Parser::ParseConnections(CONNECTIONS_FILE, cities);
+	Parser::ParsePointsOfInterest(POIS_FILE, cities);
 
 	vector<string> poi = cities.at(0)->getPointsOfInterest();
 	cout << "Lisboa" << endl;
@@ -25,7 +29,8 @@ int main() {
 
 	Agency ag(clients, cities, links);
 	agencyMenu(&ag);
-	ag.exportClients();
-	ag.exportCities();
+	ag.exportClients(CLIENTS_FILE);
+	ag.exportCities(CITIES_FILE);
+	ag.exportPointsOfInterest(POIS_FILE);
 	return 0;
 }

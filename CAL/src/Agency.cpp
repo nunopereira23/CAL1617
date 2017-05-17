@@ -51,10 +51,10 @@ void Agency::showCities(){
 	}
 }
 
-void Agency::exportClients(){
+void Agency::exportClients(string file) const {
 
 	ofstream out;
-	out.open("clients.txt");
+	out.open(file.c_str());
 
 	for(unsigned int i=0; i<clients.size(); i++){
 		out << *clients.at(i) << endl;
@@ -62,14 +62,34 @@ void Agency::exportClients(){
 	out.close();
 }
 
-void Agency::exportCities(){
+void Agency::exportCities(string file) const {
 
 	ofstream out;
-	out.open("cities.txt");
+	out.open(file.c_str());
 
 	for(unsigned int i=0; i<cities.size(); i++){
 		out << *cities[i] <<endl;
 	}
+
+	out.close();
+}
+
+void Agency::exportPointsOfInterest(string file) const {
+	ofstream out;
+	out.open(file.c_str());
+
+	for(unsigned int i=0; i<cities.size(); i++){
+		vector<string> pois = cities[i]->getPointsOfInterest();
+
+		if (pois.size() > 0) {
+			out << cities[i]->getName();
+			for (vector<string>::const_iterator poi = pois.begin(); poi != pois.end(); poi++) {
+				out << ", " << (*poi);
+			}
+			out << ";" << endl;
+		}
+	}
+
 	out.close();
 }
 
