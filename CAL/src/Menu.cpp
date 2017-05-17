@@ -145,7 +145,9 @@ void citiesMenu(Agency *ag){
 	cout << "1- Adicionar uma cidade"<<endl;
 	cout << "2- Consultar todas as cidades" << endl;
 	cout << "3- Visualizar grafo de todas as cidades" << endl;
-	cout << "4- Menu Anterior" << endl;
+	cout << "4- Ver pontos de interesse" << endl;
+	cout << "5- Adicionar pontos de interesse" << endl;
+	cout << "6- Menu Anterior" << endl;
 	cout << "/***********************/" << endl;
 	int escolha; cin >> escolha;
 	switch (escolha) {
@@ -191,8 +193,96 @@ void citiesMenu(Agency *ag){
 		citiesMenu(ag);
 		break;
 	}
-
 	case 4:
+	{
+		string name;
+		cout << endl << "Indique o nome da cidade (0 para ver de todas as cidades): ";
+		cin.clear();
+		cin.ignore(10000,'\n');
+		getline(cin, name);
+
+		if (name == "0") {
+			cout << endl << "Visualizando pontos de interesse para todas as cidades:" << endl;
+			for(unsigned int i = 0; i < ag->getCities().size(); i++) {
+				City* c = ag->getCities().at(i);
+
+				// If the current city contains points of interest
+				if (c->getPointsOfInterest().size() > 0) {
+					cout << c->getName() << ": ";
+					c->printPointsOfInterest(cout, false);
+					cout << "." << endl;
+				}
+			}
+		} else {
+			City* c = City::getCity(name, ag->getCities());
+			if (c) {
+				if (c->getPointsOfInterest().size() == 0)
+					cout << endl << c->getName() << " nao tem atualmente pontos de interesse" << endl;
+				else {
+					cout << "Pontos de interesse para a cidade " << c->getName() << ":" << endl;
+					c->printPointsOfInterest(cout, true);
+					cout << endl;
+				}
+			} else {
+				cout << "Cidade " << name << " nao existe!" << endl;
+			}
+		}
+
+		cout << endl << "Prima ENTER para continuar..." << endl;
+		cin.clear();
+		getchar();
+		citiesMenu(ag);
+		break;
+	}
+	case 5:
+	{
+		string input;
+		City* city = NULL;
+		cin.clear();
+		cin.ignore(10000,'\n');
+
+		do {
+			cout << "Introduza o nome de uma cidade: ";
+			getline(cin, input);
+			if (!City::exists(input, ag->getCities()))
+				cout << "Nao existe nenhuma cidade com o nome que introduziu! Por favor tente novamente." << endl;
+			else
+				city = City::getCity(input, ag->getCities());
+		} while (!city);
+
+		if (city->getPointsOfInterest().size() == 0)
+			cout << endl << city->getName() << " nao tem atualmente pontos de interesse" << endl << endl;
+		else {
+			cout << endl << "Pontos de interesse atuais para a cidade " << city->getName() << ":" << endl;
+			city->printPointsOfInterest(cout, true);
+			cout << endl << endl;
+		}
+
+		cout << "Indique os pontos de interesse para adicionar (0 para terminar):" << endl;
+		do {
+			cin.clear();
+			getline(cin, input);
+			if (input != "0"){
+				city->addPointsOfInterest(input);
+			}
+		} while(input != "0");
+
+		cout << endl << endl;
+		if (city->getPointsOfInterest().size() == 0)
+			cout << endl << city->getName() << " nao tem atualmente pontos de interesse" << endl << endl;
+		else {
+			cout << endl << "Pontos de interesse atuais para a cidade " << city->getName() << ":" << endl;
+			city->printPointsOfInterest(cout, true);
+			cout << endl << endl;
+		}
+
+		cout << "Prima ENTER para continuar..." << endl;
+		cin.clear();
+		getchar();
+		citiesMenu(ag);
+		break;
+	}
+	case 6:
 	{
 		agencyMenu(ag);
 		break;

@@ -24,6 +24,7 @@ public:
 	static double distance(const City &c1, const City &c2);
 	static double distance(const std::vector<City> &cities);
 	static bool exists(const std::string &city, const std::vector<City *> &cities);
+	static City* getCity(const std::string name, const std::vector<City *> &cities);
 	City(std::string name, double price, double lat, double lon);
 	void removeTravelTo(City *c);
 	int getId() const;
@@ -41,7 +42,7 @@ public:
 	void addSpecialDate(SpecialDate date);
 	void addPointsOfInterest(std::string pointOfInterest);
 	std::vector<std::string> getPointsOfInterest() const;
-
+	void printPointsOfInterest(std::ostream &os, bool splitLines) const;
 };
 
 #endif /* SRC_CITY_H_ */

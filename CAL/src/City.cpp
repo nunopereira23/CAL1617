@@ -25,6 +25,15 @@ bool City::exists(const string &city, const vector<City *> &cities) {
 	return false;
 }
 
+City* City::getCity(const string name, const vector<City *> &cities) {
+	for (vector<City*>::const_iterator it = cities.begin(); it != cities.end(); it++) {
+		if ((*it)->getName() == name) {
+			return (*it);
+		}
+	}
+	return NULL;
+}
+
 City::City(string name, double price, double lat, double lon) :
 		id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) { }
 
@@ -88,6 +97,22 @@ bool City::operator!=(const City &c){
 
 void City::addPointsOfInterest(string pointOfInterest) {
 	this->pointsOfInterest.push_back(pointOfInterest);
+}
+
+void City::printPointsOfInterest(ostream &os, bool splitLines) const {
+	for (vector<string>::const_iterator poi = pointsOfInterest.begin(); poi != pointsOfInterest.end(); poi++) {
+		if (splitLines) {
+			if (poi != pointsOfInterest.begin()) {
+				os << endl;
+			}
+			os << "\t- " << *poi;
+		} else {
+			if (poi != pointsOfInterest.begin()) {
+				os << ", ";
+			}
+			os << *poi;
+		}
+	}
 }
 
 vector<string> City::getPointsOfInterest() const {

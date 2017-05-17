@@ -1,2 +1,3 @@
-Lisbon, Centro Cultural de Belem, Praca do Marques, Estadio da Luz;
-Madrid, Santiago Barnabeu, Centro Comercial Plaza Mayor, Parque Jardins do Retiro; 
+Lisbon, Centro Cultural de Belem, Praca do Marques, Estadio da Luz, Monumento dos Descubrimentos;
+Madrid, Santiago Barnabeu, Centro Comercial Plaza Mayor, Parque Jardins do Retiro;
+Paris, Torre Eifel, Museu Louvre, Arco do Triunfo;

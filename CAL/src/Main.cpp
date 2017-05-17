@@ -17,16 +17,6 @@ int main() {
 	vector<Link *> links= Parser::ParseConnections(CONNECTIONS_FILE, cities);
 	Parser::ParsePointsOfInterest(POIS_FILE, cities);
 
-	vector<string> poi = cities.at(0)->getPointsOfInterest();
-	cout << "Lisboa" << endl;
-	for (unsigned int i = 0; i < poi.size(); i++)
-		cout << poi.at(i) << endl;
-
-	poi = cities.at(1)->getPointsOfInterest();
-	cout << "Madrid" << endl;
-	for (unsigned int i = 0; i < poi.size(); i++)
-		cout << poi.at(i) << endl;
-
 	Agency ag(clients, cities, links);
 	agencyMenu(&ag);
 	ag.exportClients(CLIENTS_FILE);
