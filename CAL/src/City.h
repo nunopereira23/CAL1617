@@ -17,6 +17,7 @@ class City {
 	double lat;
 	double lon;
 	std::vector<SpecialDate> specialDates;
+	std::vector<std::string> pointsOfInterest;
 
 
 public:
@@ -38,6 +39,8 @@ public:
 	bool operator!= (const City &c);
 	friend std::ostream &operator<< (std::ostream &os, City &c1);
 	void addSpecialDate(SpecialDate date);
+	void addPointsOfInterest(std::string pointOfInterest);
+	std::vector<std::string> getPointsOfInterest() const;
 
 };
 

@@ -86,6 +86,14 @@ bool City::operator!=(const City &c){
 	return this->id != c.getId();
 }
 
+void City::addPointsOfInterest(string pointOfInterest) {
+	this->pointsOfInterest.push_back(pointOfInterest);
+}
+
+vector<string> City::getPointsOfInterest() const {
+	return this->pointsOfInterest;
+}
+
 ostream & operator<<(ostream &os, City &c1){
 
 	os << c1.getName() << ", " << (c1.getLatitude()-90) << ", " << (c1.getLongitude()-180) << ", " << c1.getPrice() << ";";

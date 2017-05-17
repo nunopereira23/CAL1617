@@ -18,6 +18,7 @@ public:
 	static std::vector<City *> ParseCities(std::string file);
 	static std::vector<Link *> ParseConnections(std::string file, std::vector<City *> cities);
 	static std::vector<Client *> ParseClients(std::string file);
+	static void ParsePointsOfInterest(std::string file, std::vector<City *> cities);
 };
 
 

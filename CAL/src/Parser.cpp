@@ -110,3 +110,30 @@ vector<Client *> Parser::ParseClients(string file){
 	}
 	return clientes;
 }
+
+void Parser::ParsePointsOfInterest(string file, vector<City *> cities) {
+	vector<string> lines = Parser::parseLines(file);
+	for (unsigned int i = 0; i < lines.size(); i++) {
+		string line = lines.at(i);
+
+		string name = line.substr(0,line.find(','));
+		line = line.substr(line.find(',') + 2);
+
+		City * city = NULL;
+		for(vector<City *>::iterator it = cities.begin(); it != cities.end(); it++) {
+			if ((*it)->getName() == name) {
+				city = (*it);
+			}
+		}
+
+		if (!city) {
+			cout << "Couldn't find city \"" << name << "\" on parsing points of interest!" << endl;
+			continue;
+		}
+
+		while (line.find(',') != string::npos) {
+			city->addPointsOfInterest(line.substr(0,line.find(',')));
+			line = line.substr(line.find(',') + 2);
+		}
+	}
+}
