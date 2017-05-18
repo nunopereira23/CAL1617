@@ -73,11 +73,13 @@ void clientsMenu(Agency *ag){
 
 			if(City::exists(input, ag->getCities())) {
 				places.push_back(input);
+			}
 
-				/*else if(){
+			else if(City::existsPOI(input, ag->getCities())){
+				places.push_back(City::search(input, ag->getCities(), true).at(0));
+			}
 
-				}*/
-			} else if (input != "0"){
+			else if (input != "0"){
 				cout << "Nao existe nenhuma cidade com o nome que introduziu! Por favor tente novamente." << endl;
 			}
 

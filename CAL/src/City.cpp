@@ -45,19 +45,19 @@ City* City::getCity(const string name, const vector<City *> &cities) {
 	return NULL;
 }
 
-vector<City*> City::search(string searchString, std::vector<City*> cities, bool exactSearch) {
-	vector<City*> found;
+vector<string> City::search(string searchString, std::vector<City*> cities, bool exactSearch) {
+	vector<string> found;
 	if (exactSearch) {
 		// TODO exact search on the cities vector; populate found vector with results
 		for(size_t i=0; i < cities.size(); i++){
 			for(size_t j=0; j < cities.at(i)->getPointsOfInterest() ; j++){
 				if(searchString==cities.at(i)->getPointsOfInterest().at(j)){
-					found.push_back(cities.at(i));
+					found.push_back(cities.at(i)->getName());
 					return found;
 				}
 			}
 		}
-		return found;
+		return NULL;
 	} else {
 		// TODO approximate search on the cities vector; populate found vector with results
 	}

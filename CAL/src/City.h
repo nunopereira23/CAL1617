@@ -26,7 +26,7 @@ public:
 	static bool exists(const std::string &city, const std::vector<City *> &cities);
 	static bool existsPOI(const std::string &POI, const std::vector<City *> &cities);
 	static City* getCity(const std::string name, const std::vector<City *> &cities);
-	static std::vector<City*> search(const std::string searchString, std::vector<City*> cities, bool exactSearch);
+	static std::vector<std::string> search(const std::string searchString, std::vector<City*> cities, bool exactSearch);
 	City(std::string name, double price, double lat, double lon);
 	void removeTravelTo(City *c);
 	int getId() const;
