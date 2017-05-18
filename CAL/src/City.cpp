@@ -50,14 +50,14 @@ vector<string> City::search(string searchString, std::vector<City*> cities, bool
 	if (exactSearch) {
 		// TODO exact search on the cities vector; populate found vector with results
 		for(size_t i=0; i < cities.size(); i++){
-			for(size_t j=0; j < cities.at(i)->getPointsOfInterest() ; j++){
+			for(size_t j=0; j < cities.at(i)->getPointsOfInterest().size() ; j++){
 				if(searchString==cities.at(i)->getPointsOfInterest().at(j)){
 					found.push_back(cities.at(i)->getName());
 					return found;
 				}
 			}
 		}
-		return NULL;
+		return found;
 	} else {
 		// TODO approximate search on the cities vector; populate found vector with results
 	}
