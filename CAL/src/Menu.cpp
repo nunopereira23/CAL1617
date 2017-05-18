@@ -73,9 +73,14 @@ void clientsMenu(Agency *ag){
 
 			if(City::exists(input, ag->getCities())) {
 				places.push_back(input);
+
+				/*else if(){
+
+				}*/
 			} else if (input != "0"){
 				cout << "Nao existe nenhuma cidade com o nome que introduziu! Por favor tente novamente." << endl;
 			}
+
 		} while(input != "0");
 
 		if (sDate == "0")
