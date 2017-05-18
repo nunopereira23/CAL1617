@@ -27,7 +27,7 @@ bool City::exists(const string &city, const vector<City *> &cities) {
 
 bool City::existsPOI(const std::string &POI, const std::vector<City *> &cities){
 	for (vector<City *>::const_iterator it = cities.begin(); it != cities.end(); it++){
-		for(size_t i=0; i<(*it)->getPointsOfInterest().at(i);i++){
+		for(size_t i=0; i<(*it)->getPointsOfInterest().size();i++){
 			if((*it)->getPointsOfInterest().at(i)==POI){
 				return true;
 			}
