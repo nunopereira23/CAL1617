@@ -1,3 +1,19 @@
-Lisbon, Centro Cultural de Belem, Praca do Marques, Estadio da Luz, Monumento dos Descubrimentos;
-Madrid, Santiago Barnabeu, Centro Comercial Plaza Mayor, Parque Jardins do Retiro;
-Paris, Torre Eifel, Museu Louvre, Arco do Triunfo;
+Lisbon, Cultural Centre of Belem, Estadio da Luz, Jeronimos Monastery,Padrão dos Descobrimentos
+Madrid, Plaza Mayor, Museo Nacional del Prado, Santiado Barnabeu, Buen Retiro Park
+Paris, Eiffel Tower, The Louvre, Arc de Triomphe, Disneyland, Champs-Elysees
+Rio de Janeiro, Copacabana Beach, Christ the Redeemer, Sugarloaf Mountain, Ipanema
+New York, Central Park, Empire State Building, Statue of Liberty, Museum of Modern Art
+Shanghai, The Bund, Yu Garden, The Jade Buddha Temple
+Sydney, Sydney Opera House, Sydney Botanic Gardens, Jenolan Caves
+Johannesburg, Apartheid Museum, Gold Reef City
+Mexico City, Chapultepec, National Museum of Anthropology,Zócalo
+Moscow, Kremlin, Red Square, Saint Basils Cathedral
+Tokyo, Meiji Shrine, Senso-ji, Roppongi
+Istanbul, Hagia Sophia, Topkapi Palace
+Rome, Colosseum, Pantheon, Roman Forum, Trevi Fountain
+Munich, Englischer Garten, Nymphenburg Palace, Marienplatz
+Buenos Aires, La Boca, Teatro Colon
+Los Angeles, Universal Studios, Getty Center, Hollywood Boulevard
+Jerusalem, Old City, Western Wall
+Bangkok, Grand Palace, Wat Arun
+Luanda, Fortress of Sao Miguel, Quiçama National Park
