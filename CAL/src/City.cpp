@@ -46,7 +46,6 @@ City* City::getCity(const string name, const vector<City *> &cities) {
 }
 
 
-
 string City::remove_if(string POI)
 {
 	string dest = POI;
@@ -86,6 +85,7 @@ vector<string> City::search(string searchString, std::vector<City*> cities, bool
 	}
 	return found;
 }
+
 
 City::City(string name, double price, double lat, double lon) :
 				id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) { }

@@ -15,7 +15,4 @@ int editDistance(std::string pattern, std::string text);
 int editDistance(std::string pattern, std:: string text);
 
 
-
-
-
 #endif /* SRC_MATCHER_H_ */

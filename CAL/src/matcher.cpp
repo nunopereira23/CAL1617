@@ -11,6 +11,7 @@
 #include "matcher.h"
 using namespace std;
 
+
 void pre_kmp(string pattern, vector<int> & prefix)
 {
 	int m=pattern.length();
