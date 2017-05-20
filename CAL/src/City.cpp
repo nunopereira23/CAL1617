@@ -25,7 +25,7 @@ bool City::exists(const string &city, const vector<City *> &cities) {
 	return false;
 }
 
-bool City::existsPOI(const std::string &POI, const std::vector<City *> &cities){
+/*bool City::existsPOI(const std::string &POI, const std::vector<City *> &cities){
 	for (vector<City *>::const_iterator it = cities.begin(); it != cities.end(); it++){
 		for(size_t i=0; i<(*it)->getPointsOfInterest().size();i++){
 			if((*it)->getPointsOfInterest().at(i)==POI){
@@ -35,7 +35,7 @@ bool City::existsPOI(const std::string &POI, const std::vector<City *> &cities){
 	}
 return false;
 }
-
+ */
 City* City::getCity(const string name, const vector<City *> &cities) {
 	for (vector<City*>::const_iterator it = cities.begin(); it != cities.end(); it++) {
 		if ((*it)->getName() == name) {
@@ -45,27 +45,50 @@ City* City::getCity(const string name, const vector<City *> &cities) {
 	return NULL;
 }
 
+
+
+string City::remove_if(string POI)
+{
+	string dest = POI;
+	for (string::iterator itr = POI.begin();itr != POI.end(); itr++){
+		if ((*itr) !=" ")
+			*(dest++) = *itr;
+		else{}
+	}
+	return dest;
+}
+
+string City::stringMatchingPOI(string &POI){
+	remove_if(POI);
+	vector<string>::iterator itr = pointsOfInterest.begin();
+	for(itr; itr!= pointsOfInterest.end(); itr++){
+		string potencial = *itr;
+		remove_if(potencial);
+		if(kmp(potencial, POI))
+			return this->name;
+	}
+	return "";
+}
+
+
 vector<string> City::search(string searchString, std::vector<City*> cities, bool exactSearch) {
 	vector<string> found;
 	if (exactSearch) {
-		// TODO exact search on the cities vector; populate found vector with results
+		string result;
 		for(size_t i=0; i < cities.size(); i++){
-			for(size_t j=0; j < cities.at(i)->getPointsOfInterest().size() ; j++){
-				if(searchString==cities.at(i)->getPointsOfInterest().at(j)){
-					found.push_back(cities.at(i)->getName());
-					return found;
-				}
-			}
+			if((result = stringMatchingPOI(searchString)) !="")
+				found.push_back(result);
 		}
 		return found;
-	} else {
+	}
+	else {
 		// TODO approximate search on the cities vector; populate found vector with results
 	}
 	return found;
 }
 
 City::City(string name, double price, double lat, double lon) :
-		id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) { }
+				id(City::cid++), name(name), price(price), lat(lat + 90), lon(lon + 180) { }
 
 string City::getName() const {
 	return this->name;

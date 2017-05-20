@@ -67,6 +67,7 @@ void clientsMenu(Agency *ag){
 
 		string input;
 		do {
+			string result;
 			cout << "Indique os seus destinos (0 para terminar)" << endl;
 			cin.clear();
 			getline(cin, input);
@@ -75,8 +76,8 @@ void clientsMenu(Agency *ag){
 				places.push_back(input);
 			}
 
-			else if(City::existsPOI(input, ag->getCities())){
-				places.push_back(City::search(input, ag->getCities(), true).at(0));
+			else if((result = City::search(input, ag->getCities(), true).at(0)) != ""){
+				places.push_back(result);
 			}
 
 			else if (input != "0"){

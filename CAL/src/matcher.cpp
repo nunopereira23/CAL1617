@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <fstream>
 #include <sstream>
+#include "City.h"
+#include "matcher.h"
 using namespace std;
 
 void pre_kmp(string pattern, vector<int> & prefix)
@@ -63,6 +65,7 @@ int numStringMatching(string filename,string toSearch)
 	fich.close();
 	return num;
 }
+
 
 
 int editDistance(string pattern, string text)
