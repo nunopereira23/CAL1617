@@ -1,5 +1,6 @@
 #include <cmath>
 #include <vector>
+#include <climits>
 #include "City.h"
 #include "matcher.h"
 
@@ -169,15 +170,16 @@ string City::PoisToString() const {
 
 int City::getApproxSearchDistance(string pattern) const {
 	string word1;
-	int num, nwords = 0;
-	num = editDistance(pattern, this->name);
-	nwords++;
+	int min;
+	int num;
+	min = editDistance(pattern, this->name);
+
 	for (unsigned int i = 0; i < pointsOfInterest.size(); i++) {
-		num += editDistance(pattern, pointsOfInterest.at(i));
-		nwords++;
+		num = editDistance(pattern, pointsOfInterest.at(i));
+		min = min < num ? min : num;
 	}
 	//cout << name <<": " << ((float)num/nwords) << endl;
-	return (float)num/nwords;
+	return min;
 }
 
 ostream & operator<<(ostream &os, City &c1){
