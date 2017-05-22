@@ -26,17 +26,7 @@ bool City::exists(const string &city, const vector<City *> &cities) {
 	return false;
 }
 
-/*bool City::existsPOI(const std::string &POI, const std::vector<City *> &cities){
-	for (vector<City *>::const_iterator it = cities.begin(); it != cities.end(); it++){
-		for(size_t i=0; i<(*it)->getPointsOfInterest().size();i++){
-			if((*it)->getPointsOfInterest().at(i)==POI){
-				return true;
-			}
-		}
-	}
-return false;
-}
- */
+
 City* City::getCity(const string name, const vector<City *> &cities) {
 	for (vector<City*>::const_iterator it = cities.begin(); it != cities.end(); it++) {
 		if ((*it)->getName() == name) {
@@ -45,31 +35,6 @@ City* City::getCity(const string name, const vector<City *> &cities) {
 	}
 	return NULL;
 }
-
-
-/*string City::remove_if(string POI)
-{
-	string dest = POI;
-	for (string::iterator itr = POI.begin();itr != POI.end(); itr++){
-		if ((*itr) !=" ")
-			*(dest++) = *itr;
-		else{}
-	}
-	return dest;
-}*/
-
-/*string City::stringMatchingPOI(string &POI){
-	remove_if(POI);
-	vector<string>::iterator itr = pointsOfInterest.begin();
-	for(; itr!= pointsOfInterest.end(); itr++){
-		string potencial = *itr;
-		remove_if(potencial);
-		if(kmp(potencial, POI))
-			return this->name;
-	}
-	return "";
-}*/
-
 
 vector<string> City::search(string searchString, vector<City*> cities, bool exactSearch) {
 	vector<string> found;
@@ -211,7 +176,7 @@ int City::getApproxSearchDistance(string pattern) const {
 		num += editDistance(pattern, pointsOfInterest.at(i));
 		nwords++;
 	}
-	cout << name <<": " << ((float)num/nwords) << endl;
+	//cout << name <<": " << ((float)num/nwords) << endl;
 	return (float)num/nwords;
 }
 
