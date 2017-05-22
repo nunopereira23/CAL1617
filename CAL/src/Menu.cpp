@@ -85,7 +85,9 @@ void clientsMenu(Agency *ag){
 				cout << "Nao existe nenhuma cidade com o nome que introduziu! Por favor tente novamente." << endl;
 			}
 
-		} while(input != "0");
+
+		}
+		while(input != "0");
 
 		if (sDate == "0")
 			date = Date("99-99-9999");

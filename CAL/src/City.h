@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <map>
 #include "matcher.cpp"
 #include "SpecialDate.h"
 
@@ -28,6 +29,7 @@ public:
 	static City* getCity(const std::string name, const std::vector<City *> &cities);
 	std::string remove_if(std::string POI);
 	std::string stringMatchingPOI(std::string &POI);
+	std::string ApproximateStringMatching(std::string POI);
 	static std::vector<std::string> search(const std::string searchString, std::vector<City*> cities, bool exactSearch);
 	City(std::string name, double price, double lat, double lon);
 	void removeTravelTo(City *c);

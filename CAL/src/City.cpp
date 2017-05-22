@@ -69,6 +69,38 @@ string City::stringMatchingPOI(string &POI){
 	return "";
 }
 
+string City::ApproximateStringMatching(string POI){
+	vector<string> result;
+	int allChanges=0;
+	priority_queue<string> citiesMatch;
+	string::iterator itr = POI.begin();
+	vector<pair<string, int>> results;
+
+
+
+	for(size_t i=0; this->getPointsOfInterest().size(); i++){
+			for(itr; itr!= POI.end(); itr++){
+			int difference = 500;
+			string::iterator itr2 = this->getPointsOfInterest().at(i).begin();
+			for(itr2; itr2!=this->getPointsOfInterest().at(i).end(); itr2++){
+				int distance = editDistance((*itr),(*itr2));
+				if(distance < difference)
+					difference = distance;
+			}
+			allChanges += difference;
+		}
+		results.push_back(pair<this->getPointsOfInterest().at(i),allChanges>);
+		allChanges=0;
+	}
+	for(size_t k=0; k < results.size();k++){
+		if(results.at(k).second ==0){
+			return results.at(k).first;
+		}
+}
+//Falta um ciclo para percorrer o vector results e extrair os 3 com menor distancia
+//ou seja, o nome dos pares que tiverem o segundo membro menor
+}
+
 
 vector<string> City::search(string searchString, std::vector<City*> cities, bool exactSearch) {
 	vector<string> found;
