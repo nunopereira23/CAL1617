@@ -1,15 +1,13 @@
-/*
- * matcher.cpp
- */
+ #ifndef MATCHER_H_
+#define MATCHER_H_
+
 #include <string>
 #include <vector>
 #include <iostream>
 #include <algorithm>
 #include <fstream>
 #include <sstream>
-#include "City.h"
 using namespace std;
-
 
 void pre_kmp(string pattern, vector<int> & prefix)
 {
@@ -40,33 +38,12 @@ int kmp(string text, string pattern)
 		if (pattern[q+1]==text[i])
 			q++;
 		if (q==m-1) {
-			cout <<"pattern occurs with shift" << i-m+1 << endl;
 			num++;
 			q=prefix[q];
 		}
 	}
 	return num;
 }
-
-
-int numStringMatching(string filename,string toSearch)
-{
-	ifstream fich(filename.c_str());
-	if (!fich)
-	   { cout << "Erro a abrir ficheiro de leitura\n"; return 0; }
-
-	string line1;
-	int num=0;
-
-	while (!fich.eof()) {
-		getline(fich,line1);
-		num+=kmp(line1,toSearch);
-	}
-	fich.close();
-	return num;
-}
-
-
 
 int editDistance(string pattern, string text)
 {
@@ -93,27 +70,4 @@ int editDistance(string pattern, string text)
 	return d[n];
 }
 
-float numApproximateStringMatching(string filename,string toSearch)
-{
-	ifstream fich(filename.c_str());
-	if (!fich)
-	   { cout << "Erro a abrir ficheiro de leitura\n"; return 0; }
-
-	string line1, word1;
-	int num=0, nwords=0;
-
-	while (!fich.eof()) {
-		getline(fich,line1);
-		stringstream s1(line1);
-		while (!s1.eof()) {
-			s1 >> word1;
-			num += editDistance(toSearch,word1);
-			nwords++;
-		}
-	}
-	fich.close();
-	float res=(float)num/nwords;
-	return res;
-}
-
-
+#endif

@@ -50,6 +50,7 @@ void clientsMenu(Agency *ag){
 	case 1:
 	{
 		string name, origin, sDate;
+		int mode = 1; // 1 - Exact search; 2- Approx search
 		Date date;
 		vector<string> places;
 
@@ -62,32 +63,88 @@ void clientsMenu(Agency *ag){
 		cin.clear();
 		getline(cin, sDate);
 
-		cout << "Indique a origem da viagem" << endl;
-		cin.clear();
-		getline(cin, origin);
-
-		string input;
 		do {
-			string result;
-			cout << "Indique os seus destinos (0 para terminar)" << endl;
+			string input;
+			if (mode == 1)
+				cout << "Indique exatamente a origem da viagem (1 para mudar para pesquisa aproximada): ";
+			else
+				cout << "Indique aproximadamente a origem da viagem (1 para mudar para pesquisa exata): ";
 			cin.clear();
 			getline(cin, input);
 
-			if(City::exists(input, ag->getCities())) {
-				places.push_back(input);
+			if (input == "1")
+				mode = mode == 1 ? 2 : 1;
+			else {
+				vector<string> found = City::search(input, ag->getCities(), mode == 1);
+
+				if (found.size() == 0)
+					cout << "Nao foi encontrada nenhuma cidade com a pesquisa que introduziu! Por favor tente novamente." << endl << endl;
+				else if (found.size() == 1) {
+					cout << "Cidade " << found.at(0) << " encontrada!" << endl;
+					found.at(0);
+					break;
+				} else {
+					cout << endl << "Foram encontradas várias cidades para a pesquisa " << input << ":" << endl;
+					if (mode == 2) { // If is approximate search only show the first 3 results
+						for (unsigned int i = 1; i <= found.size() && i <= 3; i++)
+							cout << i << " - " << found.at(i-1) << endl;
+					} else {
+						for (unsigned int i = 1; i <= found.size(); i++)
+							cout << i << " - " << found.at(i-1) << endl;
+					}
+
+					cout << "Indique qual a cidade que pretende: ";
+					cin.clear();
+					getline(cin, input);
+					int selection = atoi(input.c_str());
+					origin = found.at(selection-1);
+					cout << "Selecionada a cidade: " << found.at(selection-1) << endl << endl;
+					break;
+				}
+			}
+		} while (1);
+
+		string input;
+		do {
+			if (mode == 1)
+				cout << "Indique exatamente os destinos da viagem (1 para mudar para pesquisa aproximada; 0 para terminar): ";
+			else
+				cout << "Indique aproximadamente os destinos da viagem (1 para mudar para pesquisa exata; 0 para terminar): ";
+			cin.clear();
+			getline(cin, input);
+			string result;
+
+			if (input == "1")
+				mode = mode == 1 ? 2 : 1;
+
+			else if (input != "0") {
+				vector<string> found = City::search(input, ag->getCities(), mode == 1);
+
+				if (found.size() == 0)
+					cout << "Nao foi encontrada nenhuma cidade com a pesquisa que introduziu! Por favor tente novamente." << endl << endl;
+				else if (found.size() == 1) {
+					cout << "Cidade " << found.at(0) << " encontrada!" << endl;
+					places.push_back(found.at(0));
+				} else {
+					cout << endl << "Foram encontradas várias cidades para a pesquisa " << input << ":" << endl;
+					if (mode == 2) { // If is approximate search only show the first 3 results
+						for (unsigned int i = 1; i <= found.size() && i <= 3; i++)
+							cout << i << " - " << found.at(i-1) << endl;
+					} else {
+						for (unsigned int i = 1; i <= found.size(); i++)
+							cout << i << " - " << found.at(i-1) << endl;
+					}
+
+					cout << "Indique qual a cidade que pretende: ";
+					cin.clear();
+					getline(cin, input);
+					int selection = atoi(input.c_str());
+					cout << "Selecionada a cidade: " << found.at(selection-1) << endl << endl;
+					places.push_back(found.at(selection-1));
+				}
 			}
 
-			else if((result = City::search(input, ag->getCities(), true).at(0)) != ""){
-				places.push_back(result);
-			}
-
-			else if (input != "0"){
-				cout << "Nao existe nenhuma cidade com o nome que introduziu! Por favor tente novamente." << endl;
-			}
-
-
-		}
-		while(input != "0");
+		} while(input != "0");
 
 		if (sDate == "0")
 			date = Date("99-99-9999");

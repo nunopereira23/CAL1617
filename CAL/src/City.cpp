@@ -1,6 +1,7 @@
 #include <cmath>
 #include <vector>
 #include "City.h"
+#include "matcher.h"
 
 using namespace std;
 
@@ -46,7 +47,7 @@ City* City::getCity(const string name, const vector<City *> &cities) {
 }
 
 
-string City::remove_if(string POI)
+/*string City::remove_if(string POI)
 {
 	string dest = POI;
 	for (string::iterator itr = POI.begin();itr != POI.end(); itr++){
@@ -55,65 +56,55 @@ string City::remove_if(string POI)
 		else{}
 	}
 	return dest;
-}
+}*/
 
-string City::stringMatchingPOI(string &POI){
+/*string City::stringMatchingPOI(string &POI){
 	remove_if(POI);
 	vector<string>::iterator itr = pointsOfInterest.begin();
-	for(itr; itr!= pointsOfInterest.end(); itr++){
+	for(; itr!= pointsOfInterest.end(); itr++){
 		string potencial = *itr;
 		remove_if(potencial);
 		if(kmp(potencial, POI))
 			return this->name;
 	}
 	return "";
-}
-
-string City::ApproximateStringMatching(string POI){
-	vector<string> result;
-	int allChanges=0;
-	priority_queue<string> citiesMatch;
-	string::iterator itr = POI.begin();
-	vector<pair<string, int>> results;
+}*/
 
 
-
-	for(size_t i=0; this->getPointsOfInterest().size(); i++){
-			for(itr; itr!= POI.end(); itr++){
-			int difference = 500;
-			string::iterator itr2 = this->getPointsOfInterest().at(i).begin();
-			for(itr2; itr2!=this->getPointsOfInterest().at(i).end(); itr2++){
-				int distance = editDistance((*itr),(*itr2));
-				if(distance < difference)
-					difference = distance;
-			}
-			allChanges += difference;
-		}
-		results.push_back(pair<this->getPointsOfInterest().at(i),allChanges>);
-		allChanges=0;
-	}
-	for(size_t k=0; k < results.size();k++){
-		if(results.at(k).second ==0){
-			return results.at(k).first;
-		}
-}
-//Falta um ciclo para percorrer o vector results e extrair os 3 com menor distancia
-//ou seja, o nome dos pares que tiverem o segundo membro menor
-}
-
-
-vector<string> City::search(string searchString, std::vector<City*> cities, bool exactSearch) {
+vector<string> City::search(string searchString, vector<City*> cities, bool exactSearch) {
 	vector<string> found;
 	if (exactSearch) {
-		string result;
-		for(size_t i=0; i < cities.size(); i++){
-			if((result = stringMatchingPOI(searchString)) !="")
-				found.push_back(result);
+		for(vector<City*>::const_iterator city = cities.begin(); city != cities.end(); city++){
+			string text = (*city)->getName() + (*city)->PoisToString();
+			if (kmp(text, searchString) > 0)
+				found.push_back((*city)->getName());
 		}
 		return found;
 	}
 	else {
-		// TODO approximate search on the cities vector; populate found vector with results
+		vector<int> distances;
+		for(vector<City*>::const_iterator city = cities.begin(); city != cities.end(); city++) {
+			int distance = (*city)->getApproxSearchDistance(searchString);
+			if (distances.size() == 0) {
+				distances.push_back(distance);
+				found.push_back((*city)->getName());
+			} else {
+				bool wasInserted = false;
+				for (unsigned int i = 0; i < distances.size(); i++) {
+					if (distances.at(i) > distance) {
+						distances.insert(distances.begin() + i, distance);
+						found.insert(found.begin() + i, (*city)->getName());
+						wasInserted = true;
+						break;
+					}
+				}
+				if (!wasInserted) {
+					distances.push_back(distance);
+					found.push_back((*city)->getName());
+				}
+			}
+
+		}
 	}
 	return found;
 }
@@ -202,6 +193,26 @@ void City::printPointsOfInterest(ostream &os, bool splitLines) const {
 
 vector<string> City::getPointsOfInterest() const {
 	return this->pointsOfInterest;
+}
+
+string City::PoisToString() const {
+	string result = "";
+	for (unsigned int i = 0; i < pointsOfInterest.size(); i++)
+		result += pointsOfInterest.at(i);
+	return result;
+}
+
+int City::getApproxSearchDistance(string pattern) const {
+	string word1;
+	int num, nwords = 0;
+	num = editDistance(pattern, this->name);
+	nwords++;
+	for (unsigned int i = 0; i < pointsOfInterest.size(); i++) {
+		num += editDistance(pattern, pointsOfInterest.at(i));
+		nwords++;
+	}
+	cout << name <<": " << ((float)num/nwords) << endl;
+	return (float)num/nwords;
 }
 
 ostream & operator<<(ostream &os, City &c1){

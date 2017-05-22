@@ -5,8 +5,6 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <map>
-#include "matcher.cpp"
 #include "SpecialDate.h"
 
 class City {
@@ -25,11 +23,9 @@ public:
 	static double distance(const City &c1, const City &c2);
 	static double distance(const std::vector<City> &cities);
 	static bool exists(const std::string &city, const std::vector<City *> &cities);
-	//static bool existsPOI(const std::string &POI, const std::vector<City *> &cities);
 	static City* getCity(const std::string name, const std::vector<City *> &cities);
 	std::string remove_if(std::string POI);
 	std::string stringMatchingPOI(std::string &POI);
-	std::string ApproximateStringMatching(std::string POI);
 	static std::vector<std::string> search(const std::string searchString, std::vector<City*> cities, bool exactSearch);
 	City(std::string name, double price, double lat, double lon);
 	void removeTravelTo(City *c);
@@ -49,6 +45,8 @@ public:
 	void addPointsOfInterest(std::string pointOfInterest);
 	std::vector<std::string> getPointsOfInterest() const;
 	void printPointsOfInterest(std::ostream &os, bool splitLines) const;
+	int getApproxSearchDistance(std::string pattern) const;
+	std::string PoisToString() const;
 };
 
 #endif /* SRC_CITY_H_ */
