@@ -1,5 +1,5 @@
-Lisbon, Cultural Centre of Belem, Estadio da Luz, Jeronimos Monastery,Padrão dos Descobrimentos
-Madrid, Plaza Mayor, Museo Nacional del Prado, Santiado Barnabeu, Buen Retiro Park
+Lisbon, Cultural Centre of Belem, Estadio da Luz, Jeronimos Monastery,Padrao dos Descobrimentos
+Madrid, Plaza Mayor, Museo Nacional del Prado, Santiago Barnabeu, Buen Retiro Park
 Paris, Eiffel Tower, The Louvre, Arc de Triomphe, Disneyland, Champs-Elysees
 Rio de Janeiro, Copacabana Beach, Christ the Redeemer, Sugarloaf Mountain, Ipanema
 New York, Central Park, Empire State Building, Statue of Liberty, Museum of Modern Art
@@ -16,4 +16,4 @@ Buenos Aires, La Boca, Teatro Colon
 Los Angeles, Universal Studios, Getty Center, Hollywood Boulevard
 Jerusalem, Old City, Western Wall
 Bangkok, Grand Palace, Wat Arun
-Luanda, Fortress of Sao Miguel, Quiçama National Park
+Luanda, Fortress of Sao Miguel, Quicama National Park
